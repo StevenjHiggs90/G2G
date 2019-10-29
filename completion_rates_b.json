@@ -3,8 +3,8 @@
   "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
   "autosize": "pad",
   "padding": 5,
-  "width": 1000,
-  "height": 400,
+  "width": 984,
+  "height": 384,
   "style": "cell",
   "data": [
     {
@@ -197,8 +197,6 @@
       "scale": "x",
       "orient": "bottom",
       "grid": false,
-      "title": "School Year",
-      "titleColor":"grey",
       "domain": false,
       "labelAngle": 50,
       "labelFontSize": 15,
@@ -207,7 +205,7 @@
       "ticks": false,
       "labelAlign": "left",
       "labelBaseline": "middle",
-      "labelColor":"grey",
+      "labelColor":"#666666",
       "zindex": 0
     },
     {
@@ -215,13 +213,14 @@
       "orient": "left",
       "grid": false,
       "title": "Completion Rate",
-      "titleColor":"grey",
+      "titleFontWeight":"100",
+      "titleColor":"#898989",
       "format": "0.0%",
       "labelFontSize": 15,
-      "titleFontSize": 15,
+      "titleFontSize": 20,
       "titlePadding": 30,
       "labelOverlap": true,
-      "labelColor":"grey",
+      "labelColor":"#898989",
       "tickCount": {"signal": "ceil(height/40)"},
       "zindex": 0
     }
