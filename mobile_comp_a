@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 350,
+  "width": 300,
   "padding": 5,
  
   "config": {
@@ -109,9 +109,9 @@
                   ],
 
                   "axes": [
-                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"left","labelColor":"#898989"},
+                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"left","labelColor":"#898989","labelOverlap":"greedy"},
                     {"orient": "left", "scale": "layout", "tickCount": 5, "zindex": 1,"labelFontSize":15,"grid": false,"labelAlign":"left","labelColor":"#666666","tickSize":150,"labelPadding":0},
-                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"left","labelColor":"#898989"}
+                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"left","labelColor":"#898989","labelOverlap":"greedy"}
                   ]
 ,
 
