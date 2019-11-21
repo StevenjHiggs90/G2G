@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 180,
+  "width": 185,
   "padding": 5,
  
  
@@ -34,7 +34,7 @@
   ],
 
    "title": {
-    "text": ["Student","Group           Records"],
+    "text": ["Student","Group         Records"],
     "anchor": "start",
     "frame": "bounds",
      "fontSize": 14,
@@ -110,9 +110,9 @@
                   ],
 
                   "axes": [
-                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"left","labelColor":"#898989","labelOverlap":"greedy"},
+                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelOverlap":"greedy"},
                     {"orient": "left", "scale": "layout", "tickCount": 5, "zindex": 1,"labelFontSize":15,"grid": false,"labelAlign":"left","labelColor":"#666666","tickSize":150,"labelPadding":0},
-                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"left","labelColor":"#898989","labelOverlap":"greedy"}
+                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelOverlap":"greedy"}
                   ]
 ,
 
