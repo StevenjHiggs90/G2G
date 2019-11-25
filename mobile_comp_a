@@ -1,8 +1,7 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 185,
+  "$schema": "https://vega.github.io/schema/vega/v3.json",
+  "width": 720,
   "padding": 5,
- 
  
   "config": {
     "axisBand": {
@@ -34,7 +33,7 @@
   ],
 
    "title": {
-    "text": ["Student","Group         Records"],
+    "text": {"signal": "'Student Group            Records'"},
     "anchor": "start",
     "frame": "bounds",
      "fontSize": 14,
@@ -42,34 +41,12 @@
      "color":"#666666"
      
   },
- 
 
   "data": [
     {
                       "name": "provlvl",
-                      "values": [
-{"district":"Saanich",	"district_number":"063",	"year":"2013/2014",	"subpop":"All Students",	"value":".73",	"records":"1026",	"min":".68",	"max":".73",	"percentile_25":".75",	"percentile_75":".87"},
-{"district":"Saanich",	"district_number":"063",	"year":"2013/2014",	"subpop":"BC Residents",	"value":".81",	"records":"859",	"min":".76",	"max":".81",	"percentile_25":".8",	"percentile_75":".91"},
-{"district":"Saanich",	"district_number":"063",	"year":"2013/2014",	"subpop":"Indigenous",	"value":".51",	"records":"65",	"min":".27",	"max":".54",	"percentile_25":".62",	"percentile_75":".8"},
-{"district":"Saanich",	"district_number":"063",	"year":"2013/2014",	"subpop":"Special Needs",	"value":".64",	"records":"117",	"min":".54",	"max":".71",	"percentile_25":".56",	"percentile_75":".76"},
-{"district":"Saanich",	"district_number":"063",	"year":"2014/2015",	"subpop":"All Students",	"value":".68",	"records":"1025",	"min":".68",	"max":".73",	"percentile_25":".75",	"percentile_75":".87"},
-{"district":"Saanich",	"district_number":"063",	"year":"2014/2015",	"subpop":"BC Residents",	"value":".76",	"records":"831",	"min":".76",	"max":".81",	"percentile_25":".8",	"percentile_75":".91"},
-{"district":"Saanich",	"district_number":"063",	"year":"2014/2015",	"subpop":"Indigenous",	"value":".27",	"records":"81",	"min":".27",	"max":".54",	"percentile_25":".62",	"percentile_75":".8"},
-{"district":"Saanich",	"district_number":"063",	"year":"2014/2015",	"subpop":"Special Needs",	"value":".54",	"records":"132",	"min":".54",	"max":".71",	"percentile_25":".56",	"percentile_75":".76"},
-{"district":"Saanich",	"district_number":"063",	"year":"2015/2016",	"subpop":"All Students",	"value":".71",	"records":"1005",	"min":".68",	"max":".73",	"percentile_25":".75",	"percentile_75":".87"},
-{"district":"Saanich",	"district_number":"063",	"year":"2015/2016",	"subpop":"BC Residents",	"value":".8",	"records":"794",	"min":".76",	"max":".81",	"percentile_25":".8",	"percentile_75":".91"},
-{"district":"Saanich",	"district_number":"063",	"year":"2015/2016",	"subpop":"Special Needs",	"value":".63",	"records":"119",	"min":".54",	"max":".71",	"percentile_25":".56",	"percentile_75":".76"},
-{"district":"Saanich",	"district_number":"063",	"year":"2015/2016",	"subpop":"Indigenous",	"value":".46",	"records":"67",	"min":".27",	"max":".54",	"percentile_25":".62",	"percentile_75":".8"},
-{"district":"Saanich",	"district_number":"063",	"year":"2016/2017",	"subpop":"All Students",	"value":".7",	"records":"983",	"min":".68",	"max":".73",	"percentile_25":".75",	"percentile_75":".87"},
-{"district":"Saanich",	"district_number":"063",	"year":"2016/2017",	"subpop":"BC Residents",	"value":".8",	"records":"769",	"min":".76",	"max":".81",	"percentile_25":".8",	"percentile_75":".91"},
-{"district":"Saanich",	"district_number":"063",	"year":"2016/2017",	"subpop":"Indigenous",	"value":".47",	"records":"78",	"min":".27",	"max":".54",	"percentile_25":".62",	"percentile_75":".8"},
-{"district":"Saanich",	"district_number":"063",	"year":"2016/2017",	"subpop":"Special Needs",	"value":".69",	"records":"118",	"min":".54",	"max":".71",	"percentile_25":".56",	"percentile_75":".76"},
-{"district":"Saanich",	"district_number":"063",	"year":"2017/2018",	"subpop":"All Students",	"value":".72",	"records":"999",	"min":".68",	"max":".73",	"percentile_25":".75",	"percentile_75":".87"},
-{"district":"Saanich",	"district_number":"063",	"year":"2017/2018",	"subpop":"Indigenous",	"value":".54",	"records":"81",	"min":".27",	"max":".54",	"percentile_25":".62",	"percentile_75":".8"},
-{"district":"Saanich",	"district_number":"063",	"year":"2017/2018",	"subpop":"BC Residents",	"value":".8",	"records":"783",	"min":".76",	"max":".81",	"percentile_25":".8",	"percentile_75":".91"},
-{"district":"Saanich",	"district_number":"063",	"year":"2017/2018",	"subpop":"Special Needs",	"value":".71",	"records":"131",	"min":".54",	"max":".71",	"percentile_25":".56",	"percentile_75":".76"}
-
-                ]
+                      "values":
+            [{"district":"PROVINCE","district_number":"099","year":"2017/2018","subpop":"All Students","records":"50238","value":".85","max":".85","min":".83","percentile_25":".75","percentile_75":".87"},{"district":"PROVINCE","district_number":"099","year":"2017/2018","subpop":"Special Needs","records":"6290","value":".71","max":".71","min":".62","percentile_25":".56","percentile_75":".76"},{"district":"PROVINCE","district_number":"099","year":"2017/2018","subpop":"Indigenous","records":"5584","value":".7","max":".7","min":".62","percentile_25":".62","percentile_75":".8"},{"district":"PROVINCE","district_number":"099","year":"2017/2018","subpop":"BC Residents","records":"44947","value":".89","max":".89","min":".87","percentile_25":".8","percentile_75":".91"}]
                     },
                             {
                       "name": "distminmax",
@@ -78,15 +55,13 @@
 
                     {
                       "name": "distcurrent",
-                      "source": "provlvl",
-                      "transform": [{"type":"filter", "expr":"datum.year == '2017/2018'"}
-                                    ]
+                      "source": "provlvl"
+                                    
                     },
 
                     {
                       "name": "quartiles",
-                      "source": "provlvl",
-                      "transform": [{"type":"filter", "expr":"datum.year == '2017/2018'"}]
+                      "source": "provlvl"
                     }
                   ],
 
@@ -110,9 +85,9 @@
                   ],
 
                   "axes": [
-                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelOverlap":"greedy"},
-                    {"orient": "left", "scale": "layout", "tickCount": 5, "zindex": 1,"labelFontSize":15,"grid": false,"labelAlign":"left","labelColor":"#666666","tickSize":150,"labelPadding":0},
-                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelOverlap":"greedy"}
+                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelFlush":true},
+                    {"orient": "left", "scale": "layout", "tickCount": 5, "zindex": 1,"labelFontSize":15,"grid": false,"labelAlign":"left","labelColor":"#666666","tickSize":230,"labelPadding":0},
+                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelFlush":true, "offset":0.5}
                   ]
 ,
 
@@ -308,7 +283,7 @@
                                                                      
                                                                         "strokeWidth": {"value": 1},
                                                                         "zindex": {"value": 10},
-                                                                        "height": {"value": 6}
+                                                                        "height": {"value": 4}
                                                                       }
                                                         }
                                                       }
@@ -366,7 +341,7 @@
                                                                 "update": {
                                                                   "yc": {"signal": "plotWidth / 1.5"},
                                                                   "height": {"signal": "plotWidth / 50"},
-                                                                  "x":{"offset":-40 },
+                                                                  "x":{"offset":-80 },
                                                                   
                                                                   
                                                                   
