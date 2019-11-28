@@ -167,11 +167,13 @@
                                                               "x": {"scale": "xscale", "field": "percentile_25"},
                                                               "x2": {"scale": "xscale", "field": "percentile_75"},
                                                               "stroke": {"value": null},
-                                                                          "zindex": {"value": 0}
+                                                                          "zindex": {"value": 0},
+                                                                          "tooltip": {"signal": "{'Average 25th Percentile':format(datum.percentile_25, '0.0%'),'Average 75th Percentile':format(datum.percentile_75, '0.0%')}"}
                                                             },
                                                             "hover": {
                                                                         "stroke": {"value": "grey"},
-                                                                        "zindex": {"value": 1}
+                                                                        "zindex": {"value": 1},
+                                                                        "tooltip": {"signal": "{'Average 25th Percentile':format(datum.percentile_25, '0.0%'),'Average 75th Percentile':format(datum.percentile_75, '0.0%')}"}
                                                                       }
                                                           
                                                           
