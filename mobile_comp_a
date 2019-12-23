@@ -1,357 +1,70 @@
-
-               
 {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "autosize": "pad",
-  "padding": 10,
-    
-  
-   "title": {
-    "text": {"signal": "'Number of Students Across All Grades 2018/19'"},
-    "anchor": "start",
-    "frame": "bounds",
-     "fontSize": 19,
-     "dy":-30,
-     "dx":0,
-     "color":"blue"
-   },
-  "style": "cell",
+  "$schema": "https://vega.github.io/schema/vega/v3.json",
+  "width": 960,
+  "height": 500,
+  "autosize": "none",
   "data": [
-    {"name": "highlight_store"},
     {
-      "name": "source_0",
-      "values": 
-[{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"KF","TOTAL":3425,"MSK_FNL":"246","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":246},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"01","TOTAL":3425,"MSK_FNL":"259","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":259},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"02","TOTAL":3425,"MSK_FNL":"240","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":240},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"03","TOTAL":3425,"MSK_FNL":"284","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":284},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"04","TOTAL":3425,"MSK_FNL":"281","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":281},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"05","TOTAL":3425,"MSK_FNL":"298","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":298},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"06","TOTAL":3425,"MSK_FNL":"270","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":270},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"07","TOTAL":3425,"MSK_FNL":"238","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":238},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"08","TOTAL":3425,"MSK_FNL":"250","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":250},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"09","TOTAL":3425,"MSK_FNL":"255","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":255},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"11","TOTAL":3425,"MSK_FNL":"229","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":229},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"12","TOTAL":3425,"MSK_FNL":"264","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":264},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"Others","TOTAL":3425,"MSK_FNL":"104","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":104},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"All Students","grade":"10","TOTAL":3425,"MSK_FNL":"207","pct_all":"100%","pct_total_subpop":"100%","ALL_STD":207},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"KF","TOTAL":697,"MSK_FNL":"46","pct_all":"19%","pct_total_subpop":"20%","ALL_STD":246},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"01","TOTAL":697,"MSK_FNL":"48","pct_all":"19%","pct_total_subpop":"20%","ALL_STD":259},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"02","TOTAL":697,"MSK_FNL":"47","pct_all":"20%","pct_total_subpop":"20%","ALL_STD":240},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"03","TOTAL":697,"MSK_FNL":"54","pct_all":"19%","pct_total_subpop":"20%","ALL_STD":284},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"04","TOTAL":697,"MSK_FNL":"56","pct_all":"20%","pct_total_subpop":"20%","ALL_STD":281},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"05","TOTAL":697,"MSK_FNL":"58","pct_all":"19%","pct_total_subpop":"20%","ALL_STD":298},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"06","TOTAL":697,"MSK_FNL":"52","pct_all":"19%","pct_total_subpop":"20%","ALL_STD":270},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"07","TOTAL":697,"MSK_FNL":"57","pct_all":"24%","pct_total_subpop":"20%","ALL_STD":238},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"08","TOTAL":697,"MSK_FNL":"52","pct_all":"21%","pct_total_subpop":"20%","ALL_STD":250},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"09","TOTAL":697,"MSK_FNL":"66","pct_all":"26%","pct_total_subpop":"20%","ALL_STD":255},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"11","TOTAL":697,"MSK_FNL":"50","pct_all":"22%","pct_total_subpop":"20%","ALL_STD":229},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"12","TOTAL":697,"MSK_FNL":"62","pct_all":"23%","pct_total_subpop":"20%","ALL_STD":264},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"Others","TOTAL":697,"MSK_FNL":"3","pct_all":"3%","pct_total_subpop":"20%","ALL_STD":104},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Indigenous","grade":"10","TOTAL":697,"MSK_FNL":"46","pct_all":"22%","pct_total_subpop":"20%","ALL_STD":207},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"KF","TOTAL":303,"MSK_FNL":"12","pct_all":"5%","pct_total_subpop":"9%","ALL_STD":246},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"01","TOTAL":303,"MSK_FNL":"10","pct_all":"4%","pct_total_subpop":"9%","ALL_STD":259},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"02","TOTAL":303,"MSK_FNL":"7","pct_all":"3%","pct_total_subpop":"9%","ALL_STD":240},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"03","TOTAL":303,"MSK_FNL":"15","pct_all":"5%","pct_total_subpop":"9%","ALL_STD":284},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"04","TOTAL":303,"MSK_FNL":"21","pct_all":"7%","pct_total_subpop":"9%","ALL_STD":281},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"05","TOTAL":303,"MSK_FNL":"31","pct_all":"10%","pct_total_subpop":"9%","ALL_STD":298},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"06","TOTAL":303,"MSK_FNL":"27","pct_all":"10%","pct_total_subpop":"9%","ALL_STD":270},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"07","TOTAL":303,"MSK_FNL":"17","pct_all":"7%","pct_total_subpop":"9%","ALL_STD":238},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"08","TOTAL":303,"MSK_FNL":"24","pct_all":"10%","pct_total_subpop":"9%","ALL_STD":250},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"09","TOTAL":303,"MSK_FNL":"30","pct_all":"12%","pct_total_subpop":"9%","ALL_STD":255},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"11","TOTAL":303,"MSK_FNL":"40","pct_all":"17%","pct_total_subpop":"9%","ALL_STD":229},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"12","TOTAL":303,"MSK_FNL":"44","pct_all":"17%","pct_total_subpop":"9%","ALL_STD":264},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"Others","TOTAL":303,"MSK_FNL":"4","pct_all":"4%","pct_total_subpop":"9%","ALL_STD":104},{"district_name":"Rocky Mountain","SD":"006","year":"2018/2019","SUBPOP":"Special Needs","grade":"10","TOTAL":303,"MSK_FNL":"21","pct_all":"10%","pct_total_subpop":"9%","ALL_STD":207}]
+      "name": "unemp",
+      "url": "data/unemployment.tsv",
+      "format": {"type": "tsv", "parse": "auto", "delimiter": "\t"}
     },
     {
-      "name": "data_0",
-      "source": "source_0"
-    },
-    {
-      "name": "data_1",
-      "source": "data_0",
+      "name": "counties",
+      "url": "data/us-10m.json",
+      "format": {"type": "topojson", "feature": "counties"},
       "transform": [
         {
-          "type": "filter",
-          "expr": "datum[\"MSK_FNL\"] !== null && !isNaN(datum[\"MSK_FNL\"])"
-        }
-      ]
-    },
-        {
-                      "name": "tot",
-                      "source": "data_1",
-                      "transform": [{"type":"filter", "expr":"datum.grade == '10'"}]
-                    }
-    
- 
-  ],
-  "signals": [
-    { "name": "fields",
-      "value": ["01", "02", "03","04","05", "06", "07","08","09", "10", "11","12","KF","others"] },
-    {"name": "x_step", "value": 70},
-    {"name": "width", "update": "bandspace(domain('x').length, 0, 0) * x_step"},
-    {"name": "y_step", "value": 55},
-    {
-      "name": "height",
-      "update": "bandspace(domain('y').length, 0, 0) * y_step"
-    },
-    {
-      "name": "unit",
-      "value": {},
-      "on": [
-        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
-      ]
-    },
-    {"name": "highlight", "update": "vlSelectionResolve(\"highlight_store\")"},
-    {
-      "name": "highlight_tuple",
-      "on": [
-        {
-          "events": [{"source": "scope", "type": "click"}],
-          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_0\", fields: highlight_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"_vgsid_\"]]} : null",
-          "force": true
+          "type": "lookup",
+          "from": "unemp",
+          "key": "id",
+          "fields": ["id"],
+          "as": ["unemp"]
         },
-        {"events": [{"source": "scope", "type": "dblclick"}], "update": "null"}
+        {"type": "filter", "expr": "datum.unemp != null"}
       ]
-    },
+    }
+  ],
+  "projections": [{"name": "projection", "type": "albersUsa"}],
+  "scales": [
     {
-      "name": "highlight_tuple_fields",
-      "value": [{"type": "E", "field": "_vgsid_"}]
-    },
+      "name": "color",
+      "type": "quantize",
+      "domain": [0, 0.15],
+      "range": {"scheme": "blues-9"}
+    }
+  ],
+  "legends": [
     {
-      "name": "highlight_modify",
-      "update": "modify(\"highlight_store\", highlight_tuple, true)"
-    },
-     {"name": "palette", "value": "Oranges",
-      "bind": {
-        "input": "select",
-        "options": [
-          "YellowGreenBlue",
-          "Viridis",
-          "Magma",
-          "Inferno",
-          "Plasma",
-          "DarkBlue",
-          "DarkGold",
-          "DarkGreen",
-          "DarkMulti",
-          "DarkRed",
-          "LightGreyRed",
-          "LightGreyTeal",
-          "LightMulti",
-          "LightOrange",
-          "LightTealBlue",
-          "Blues",
-          "Browns",
-          "Greens",
-          "Greys",
-          "Oranges",
-          "Purples",
-          "Reds",
-          "TealBlues",
-          "Teals",
-          "WarmGreys",
-          "BlueOrange",
-          "BrownBlueGreen",
-          "PurpleGreen",
-          "PinkYellowGreen",
-          "PurpleOrange",
-          "RedBlue",
-          "RedGrey",
-          "RedYellowBlue",
-          "RedYellowGreen",
-          "BlueGreen",
-          "BluePurple",
-          "GoldGreen",
-          "GoldOrange",
-          "GoldRed",
-          "GreenBlue",
-          "OrangeRed",
-          "PurpleBlueGreen",
-          "PurpleBlue",
-          "PurpleRed",
-          "RedPurple",
-          "YellowGreenBlue",
-          "YellowGreen",
-          "YellowOrangeBrown",
-          "YellowOrangeRed"
-        ]
-      }},
-       { "name": "font", "value": "sans-serif",
-      "bind": {"input": "select", "options": ["sans-serif", "serif", "monospace"]} }
+      "fill": "color",
+      "orient": "bottom-right",
+      "title": "Unemployment",
+      "format": "0.1%",
+      "encode": {
+        "symbols": {
+          "update": {
+            "shape": {"value": "square"},
+            "stroke": {"value": "#ccc"},
+            "strokeWidth": {"value": 0.2}
+          }
+        }
+      }
+    }
   ],
   "marks": [
     {
-      "name": "layer_0_marks",
-      "type": "rect",
-      "style": ["rect"],
-      "from": {"data": "data_1"},
+      "type": "shape",
+      "from": {"data": "counties"},
       "encode": {
-        "enter": {"tooltip": {"signal": "{'District':datum.district_name,'Student Group':datum.SUBPOP,'% of all students in grade':datum.pct_all,'Records':datum.records}"}},
-        "update": {
-          "strokeWidth": {"value": 2},
-          
-          "fill": {"scale": "fill", "field": "MSK_FNL"},
-          "stroke": [
-            {
-              "test": "(!(length(data(\"highlight_store\"))) || (vlSelectionTest(\"highlight_store\", datum))) && (length(data(\"highlight_store\")))",
-              "value": "black"
-            },
-            {"value": null}
-          ],
-          "Description":"Delete below chunk",
-        
-          "x": {"scale": "x", "field": "grade"},
-          "width": {"scale": "x", "band": true},
-          "y": {"scale": "y", "field": "SUBPOP"},
-          "height": {"scale": "y", "band": true},
-          "stroke": {"value": null},
-          "zindex": {"value": 0}
+        "enter": {
+          "tooltip": {
+            "signal": "{'Unemployment Rate': format(datum.unemp.rate, '0.1%')}"
+          }
         },
-          "hover": {
-                                                                        "stroke": {"value": "black"},
-                                                                        "zindex": {"value": 3}
-                                                                      }
-      }
+        "update": {"fill": {"scale": "color", "field": "unemp.rate"}},
+        "hover": {"fill": {"value": "red"}}
       },
-    {
-      "name": "layer_1_marks",
-      "type": "text",
-      "style": ["text"],
-      "from": {"data": "data_0"},
-       "interactive": false,
-      "encode": {
-        "enter": {"fontSize":{"value":15}
-        },
-        "update": {
-           "fill": [
-            {"test": "datum[''] < 1000", "value": "black"},
-            {"value": "#555555"}
-          ],
-          "x": {"scale": "x", "field": "grade", "band": 0.5},
-          "y": {"scale": "y", "field": "SUBPOP", "band": 0.5},
-          "text": {"signal": "''+datum[\"MSK_FNL\"]"},
-          "align": {"value": "center"},
-          "baseline": {"value": "middle"}
-        },
-        "hover": {"name":"layer_0_marks",
-                                                                        "stroke": {"value": "black"},
-                                                                        "zindex": {"value": 3}
-                                                                      }
-      }
-    },
-  {
-                                         "type": "group",
-                                      "from": {
-                                        "facet": {
-                                          "data": "tot",
-                                          "name": "rec",
-                                          "groupby": "SUBPOP"
-                                        }
-                                      },
-
-                                      "encode": {
-                                        "enter": {
-                                          "x": {"scale": "x", "field": "grade", "band": 0.5},
-                                          "y": {"scale": "y", "field": "SUBPOP", "band": 0.5}
-                                        }
-                                      },
-
-                                      "data": [
-                                        {
-                                          "name": "reccurrent",
-                                          "source": "rec"
-                                        
-                                        }
-                                      ],
-                                            
-                             "marks": [
-
-                                         {
-                                                              "type": "text",
-                                                              "from": {"data": "reccurrent"},
-                                                              "encode": {
-                                                                "enter": {
-                                                                  "fill": {"value": "#555555"},
-                                                                  "text": {"field":"TOTAL"},
-                                                                  "tooltip": {"signal": "{'District':datum.district_name,'Student Group':datum.SUBPOP,'% of all students in grade':datum.Pct_total_subpop,'Records':datum.records}"},
-                                                                    
-                                                                    "fontSize":{"value":15},
-                                                                     "align": {"value": "left"},
-                                                                    "baseline": {"value": "middle"},
-                                                                     "x":{"offset":-50 }
-                                                                     
-                                                              
-                                                                  }
-                                                                  }
-                                                        }
-                                        
-
-                                                    ]
-
-  }
-        
-  ],
-  "scales": [
-    {
-      "name": "x",
-      "type": "band",
-      "domain": {
-        "fields": [
-          {"data": "data_1", "field": "grade"},
-          {"data": "data_0", "field": "grade"}
-        ],
-        "sort": true
-      },
-      "range": {"step": {"signal": "x_step"}},
-      "paddingInner": 0,
-      "paddingOuter": 0
-    },
-    {
-      "name": "y",
-      "type": "band",
-      "domain": {
-        "fields": [
-          {"data": "data_1", "field": "SUBPOP"},
-          {"data": "data_0", "field": "SUBPOP"}
-        ],
-        "sort": true
-      },
-      "range": {"step": {"signal": "y_step"}},
-      "paddingInner": 0,
-      "paddingOuter": 0
-    },
-    {
-      "name": "fill",
-      "type":"log",
-      "domain": {"data": "data_1", "field": "MSK_FNL"},
-      "range": {"scheme": {"signal": "palette"}},
-      "interpolate": "hcl",
-      "zero": false,
-      "domainMax":15000
-    }
-  ],
-  "axes": [
-    {
-      "scale": "x",
-      "orient": "top",
-      "grid": true,
-      "gridColor":"#666666",
-      "title": "Grades",
-      "labelAngle": 0,
-      "labelBaseline": "middle",
-      "labelColor":"#555555",
-      "zindex": 5,
-      "labelPadding":-22,
-      "labelAlign":"center",
-      "titlePadding":20,
-      "bandPosition":1,
-      "titleFont":10,
-      "tickExtra":true,
-      "labelFontSize":15,
-      "tickSize":40
-      
-    },
-    {
-      "scale": "y",
-      "orient": "left",
-      "grid": true,
-      "gridColor":"#666666",
-      "zindex": 5,
-      "labelPadding":0,
-       "tickSize":185,
-       "bandPosition":1,
-       "tickExtra":true,
-       "title": "Student Group",
-        "titlePadding":0,  
-        "titleFont":10,
-        "labelFontSize":15,
-        "titleAngle":0,
-        "titleX":-180,
-        "titleAlign":"left",
-        "offset":0,
-        "titleY":-10,
-        "titleFontSize":12,
-        "labelAlign":"left",
-        "labelColor":"#666666",
-        "titleColor":"#555555"
-    },
-     {
-      "scale": "y",
-      "orient": "top",
-      "labels":false,      
-       "bandPosition":1,
-       "ticks": false,
-       "tickExtra":true,
-       "title": "Total",
-        "titleFontWeight":"10",  
-        "titleFontSize":15,
-        "titleAngle":0,
-        "titleX":-55,
-        "titleY":-10,
-        "tickSize":60,
-        "titleColor":"#666666", 
-        "titleAnchor":"start"       
+      "transform": [{"type": "geoshape", "projection": "projection"}]
     }
   ]
 }
