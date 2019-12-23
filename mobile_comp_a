@@ -1,70 +1,173 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v3.json",
-  "width": 960,
+  "width": 800,
   "height": 500,
-  "autosize": "none",
+  "padding": 5,
+  "signals": [
+    {
+      "name": "palette",
+      "value": "Viridis",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Viridis",
+          "Magma",
+          "Inferno",
+          "Plasma",
+          "Blues",
+          "Greens",
+          "Greys",
+          "Purples",
+          "Reds",
+          "Oranges",
+          "BlueOrange",
+          "BrownBlueGreen",
+          "PurpleGreen",
+          "PinkYellowGreen",
+          "PurpleOrange",
+          "RedBlue",
+          "RedGrey",
+          "RedYellowBlue",
+          "RedYellowGreen",
+          "BlueGreen",
+          "BluePurple",
+          "GreenBlue",
+          "OrangeRed",
+          "PurpleBlueGreen",
+          "PurpleBlue",
+          "PurpleRed",
+          "RedPurple",
+          "YellowGreenBlue",
+          "YellowGreen",
+          "YellowOrangeBrown",
+          "YellowOrangeRed"
+        ]
+      }
+    },
+    {"name": "reverse", "value": false, "bind": {"input": "checkbox"}}
+  ],
   "data": [
     {
-      "name": "unemp",
-      "url": "data/unemployment.tsv",
-      "format": {"type": "tsv", "parse": "auto", "delimiter": "\t"}
-    },
-    {
-      "name": "counties",
-      "url": "data/us-10m.json",
-      "format": {"type": "topojson", "feature": "counties"},
+      "name": "temperature",
+      "url": "data/seattle-temps.csv",
+      "format": {
+        "type": "csv",
+        "parse": {"temp": "number", "date": "date"},
+        "delimiter": ","
+      },
       "transform": [
+        {"type": "formula", "as": "hour", "expr": "hours(datum.date)"},
         {
-          "type": "lookup",
-          "from": "unemp",
-          "key": "id",
-          "fields": ["id"],
-          "as": ["unemp"]
-        },
-        {"type": "filter", "expr": "datum.unemp != null"}
+          "type": "formula",
+          "as": "date",
+          "expr": "datetime(year(datum.date), month(datum.date), date(datum.date))"
+        }
       ]
     }
   ],
-  "projections": [{"name": "projection", "type": "albersUsa"}],
   "scales": [
     {
+      "name": "x",
+      "type": "time",
+      "domain": {"data": "temperature", "field": "date"},
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "band",
+      "domain": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "range": "height"
+    },
+    {
       "name": "color",
-      "type": "quantize",
-      "domain": [0, 0.15],
-      "range": {"scheme": "blues-9"}
+      "type": "sequential",
+      "range": {"scheme": {"signal": "palette"}},
+      "domain": {"data": "temperature", "field": "temp"},
+      "reverse": {"signal": "reverse"},
+      "zero": false,
+      "nice": false
     }
   ],
-  "legends": [
+  "axes": [
     {
-      "fill": "color",
-      "orient": "bottom-right",
-      "title": "Unemployment",
-      "format": "0.1%",
+      "orient": "bottom",
+      "scale": "x",
+      "domain": false,
+      "title": "Month",
+      "format": "%b"
+    },
+    {
+      "orient": "left",
+      "scale": "y",
+      "domain": false,
+      "title": "Hour",
       "encode": {
-        "symbols": {
+        "labels": {
           "update": {
-            "shape": {"value": "square"},
-            "stroke": {"value": "#ccc"},
-            "strokeWidth": {"value": 0.2}
+            "text": {
+              "signal": "datum.value === 0 ? 'Midnight' : datum.value === 12 ? 'Noon' : datum.value < 12 ? datum.value + ':00 am' : (datum.value - 12) + ':00 pm'"
+            }
           }
         }
       }
     }
   ],
+  "legends": [{"fill": "color", "type": "gradient", "title": "Avg. Temp (°F)"}],
   "marks": [
     {
-      "type": "shape",
-      "from": {"data": "counties"},
+      "type": "rect",
+      "from": {"data": "temperature"},
       "encode": {
         "enter": {
+          "x": {"scale": "x", "field": "date"},
+          "width": {"value": 5},
+          "y": {"scale": "y", "field": "hour"},
+          "height": {"scale": "y", "band": 1},
           "tooltip": {
-            "signal": "{'Unemployment Rate': format(datum.unemp.rate, '0.1%')}"
+            "signal": "{title: timeFormat(datum.date, '%b %d') + ', ' + datum.hour + ':00', 'Average temperature': datum.temp + ' °F'}"
           }
         },
-        "update": {"fill": {"scale": "color", "field": "unemp.rate"}},
-        "hover": {"fill": {"value": "red"}}
-      },
-      "transform": [{"type": "geoshape", "projection": "projection"}]
+        "update": {"fill": {"scale": "color", "field": "temp"}}
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 0},
+          "y": {"value": -4},
+          "text": {"value": "Seattle Annual Temperatures"},
+          "baseline": {"value": "bottom"},
+          "fontSize": {"value": 14},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "black"}
+        }
+      }
     }
   ]
 }
