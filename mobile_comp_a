@@ -196,7 +196,8 @@
         },
         "hover": {"name":"layer_0_marks",
                                                                         "stroke": {"value": "black"},
-                                                                        "zindex": {"value": 3}
+                                                                        "zindex": {"value": 3},
+                                                                        "tooltip": {"signal": "{'District':datum.district_name,'Student Group':datum.SUBPOP,'% of all students in grade':datum.Pct_total_subpop,'Records':datum.records}"}
                                                                       }
       }
     },
