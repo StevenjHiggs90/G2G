@@ -1,231 +1,160 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 500,
-  "height": 300,
-  "padding": {
-    "top":    10,
-    "left":   40,
-    "bottom": 20,
-    "right":  10
-  },
-  "autosize": "none",
-
+  "width": 220,
+  "padding": 5,
+ 
   "config": {
-    "axis": {
-      "domain": false,
-      "tickSize": 3,
-      "tickColor": "#888",
-      "labelFont": "Monaco, Courier New"
+    "axisBand": {
+      "bandPosition": 1,
+      "tickExtra": true,
+      "tickOffset": 0,
+      "labelFontSize": 11,
+      "labelPadding":13,
+      "tickSize":120
+      
     }
   },
 
   "signals": [
-    {
-      "name": "margin",
-      "value": 20
-    },
-    {
-      "name": "hover",
-      "on": [
-        {"events": "*:mouseover", "encode": "hover"},
-        {"events": "*:mouseout",  "encode": "leave"},
-        {"events": "*:mousedown", "encode": "select"},
-        {"events": "*:mouseup",   "encode": "release"}
-      ]
-    },
-    {
-      "name": "xoffset",
-      "update": "-(height + padding.bottom)"
-    },
-    {
-      "name": "yoffset",
-      "update": "-(width + padding.left)"
-    },
-    { "name": "xrange", "update": "[0, width]" },
-    { "name": "yrange", "update": "[height, 0]" },
+    { "name": "fields",
+      "value": ["1", "2", "3","4", "5"] },
+    { "name": "plotWidth", "value": 30 },
+    { "name": "height", "update": "(plotWidth + 10) * length(fields)"}
+  
 
-    {
-      "name": "down", "value": null,
-      "on": [
-        {"events": "touchend", "update": "null"},
-        {"events": "mousedown, touchstart", "update": "xy()"}
-      ]
-    },
-    {
-      "name": "xcur", "value": null,
-      "on": [
-        {
-          "events": "mousedown, touchstart, touchend",
-          "update": "slice(xdom)"
-        }
-      ]
-    },
-    {
-      "name": "ycur", "value": null,
-      "on": [
-        {
-          "events": "mousedown, touchstart, touchend",
-          "update": "slice(ydom)"
-        }
-      ]
-    },
-    {
-      "name": "delta", "value": [0, 0],
-      "on": [
-        {
-          "events": [
-            {
-              "source": "window", "type": "mousemove", "consume": true,
-              "between": [{"type": "mousedown"}, {"source": "window", "type": "mouseup"}]
-            },
-            {
-              "type": "touchmove", "consume": true,
-              "filter": "event.touches.length === 1"
-            }
-          ],
-          "update": "down ? [down[0]-x(), y()-down[1]] : [0,0]"
-        }
-      ]
-    },
-
-    {
-      "name": "anchor", "value": [0, 0],
-      "on": [
-        {
-          "events": "wheel",
-          "update": "[invert('xscale', x()), invert('yscale', y())]"
-        },
-        {
-          "events": {"type": "touchstart", "filter": "event.touches.length===2"},
-          "update": "[(xdom[0] + xdom[1]) / 2, (ydom[0] + ydom[1]) / 2]"
-        }
-      ]
-    },
-    {
-      "name": "zoom", "value": 1,
-      "on": [
-        {
-          "events": "wheel!",
-          "force": true,
-          "update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
-        },
-        {
-          "events": {"signal": "dist2"},
-          "force": true,
-          "update": "dist1 / dist2"
-        }
-      ]
-    },
-    {
-      "name": "dist1", "value": 0,
-      "on": [
-        {
-          "events": {"type": "touchstart", "filter": "event.touches.length===2"},
-          "update": "pinchDistance(event)"
-        },
-        {
-          "events": {"signal": "dist2"},
-          "update": "dist2"
-        }
-      ]
-    },
-    {
-      "name": "dist2", "value": 0,
-      "on": [{
-        "events": {"type": "touchmove", "consume": true, "filter": "event.touches.length===2"},
-        "update": "pinchDistance(event)"
-      }]
-    },
-
-    {
-      "name": "xdom", "update": "slice(xext)",
-      "on": [
-        {
-          "events": {"signal": "delta"},
-          "update": "[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]"
-        },
-        {
-          "events": {"signal": "zoom"},
-          "update": "[anchor[0] + (xdom[0] - anchor[0]) * zoom, anchor[0] + (xdom[1] - anchor[0]) * zoom]"
-        }
-      ]
-    },
-    {
-      "name": "ydom", "update": "slice(yext)",
-      "on": [
-        {
-          "events": {"signal": "delta"},
-          "update": "[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]"
-        },
-        {
-          "events": {"signal": "zoom"},
-          "update": "[anchor[1] + (ydom[0] - anchor[1]) * zoom, anchor[1] + (ydom[1] - anchor[1]) * zoom]"
-        }
-      ]
-    },
-    {
-      "name": "size",
-      "update": "clamp(20 / span(xdom), 1, 1000)"
-    }
+    
   ],
+
 
   "data": [
     {
-      "name": "points",
-      "url": "data/normal-2d.json",
-      "transform": [
-        { "type": "extent", "field": "u", "signal": "xext" },
-        { "type": "extent", "field": "v", "signal": "yext" }
+                      "name": "provlvl",
+                      "values":
+          [{"district":"019","district_name":"Revelstoke","records":"13%","subpop":"Percent of Lone Parent Families"},{"district":"019","district_name":"Revelstoke","records":"1.8%","subpop":"Percent of 15-24 year-olds Recieving Employemnt Insurance"},{"district":"019","district_name":"Revelstoke","records":"68.5%","subpop":"Percent of participation in Labour Force"},{"district":"019","district_name":"Revelstoke","records":"37.1%","subpop":"Percent of 25-54 without Post-Secondary Credentials"},{"district":"019","district_name":"Revelstoke","records":"$79868","subpop":"Average Family Income Economic Famalies"}]
+                    },
+                            {
+                      "name": "distminmax",
+                      "source": "provlvl"
+                    },
+
+                    {
+                      "name": "distcurrent",
+                      "source": "provlvl"
+                                    
+                    },
+
+                    {
+                      "name": "quartiles",
+                      "source": "provlvl"
+                    }
+                  ],
+
+            "scales": [
+                    {
+                      "name": "layout",
+                      "type": "band",
+                      "range": "height",
+                      "domain": {"data": "provlvl", "field": "subpop"}
+                      
+                    }, 
+                    {
+                      "name": "xscale",
+                      "type": "linear",
+                      "range": "width", "round": false,
+                      "domain": {"data": "provlvl", "field": "value"},
+                      "zero": true, "nice": true,
+                      "domainMax":1
+                                
+                    }
+                  ],
+
+                  "axes": [
+                                        {"orient": "left", "scale": "layout","zindex": 1,"labelFontSize":15,"labelAlign":"left","labelColor":"#666666","tickSize":430,"labelPadding":0,"labelLimit":1000,"grid":true,"gridColor":"#666666","tickColor":"#666666"},
+                   
+                   
+                   
+                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelFlush":true},
+
+                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelFlush":true, "offset":0.5,"grid":true}
+                  ]
+,
+
+"marks": [
+                   
+        
+        
+        {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "rec",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+
+                                      "data": [
+                                        {
+                                          "name": "reccurrent",
+                                          "source": "rec"
+                                        
+                                        }
+                                      ],
+
+
+            
+                                            
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "reccurrent"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "text": {"field":"records"},
+                                                                    "fontSize":{"value":15},
+                                                                    
+                                                                    
+                                                                  "fill": {"value": "#898989"},
+                      
+                                                                  "tooltip": {
+                                "signal": "{'School District':datum.district_name,'':datum.subpop,' ':datum.records}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 1.5"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x":{"offset":100 },
+                                                                  
+                                                                  
+                                                                  
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 1}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        }
+            
+
       ]
-    }
-  ],
 
-  "scales": [
-    {
-      "name": "xscale", "zero": false,
-      "domain": {"signal": "xdom"},
-      "range": {"signal": "xrange"}
-    },
-    {
-      "name": "yscale", "zero": false,
-      "domain": {"signal": "ydom"},
-      "range": {"signal": "yrange"}
-    }
-  ],
-
-  "axes": [
-    {
-      "scale": "xscale",
-      "orient": "top",
-      "offset": {"signal": "xoffset"}
-    },
-    {
-      "scale": "yscale",
-      "orient": "right",
-      "offset": {"signal": "yoffset"}
-    }
-  ],
-
-  "marks": [
-    {
-      "type": "symbol",
-      "from": {"data": "points"},
-      "clip": true,
-      "encode": {
-        "enter": {
-          "fillOpacity": {"value": 0.6},
-          "fill": {"value": "steelblue"}
-        },
-        "update": {
-          "x": {"scale": "xscale", "field": "u"},
-          "y": {"scale": "yscale", "field": "v"},
-          "size": {"signal": "size"}
-        },
-        "hover":   { "fill": {"value": "red"} },
-        "leave":   { "fill": {"value": "steelblue"} },
-        "select":  { "size": {"signal": "size", "mult": 5} },
-        "release": { "size": {"signal": "size"} }
-      }
-    }
-  ]
 }
