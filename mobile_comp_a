@@ -1,383 +1,360 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 800,
-  "height": 600,
-  "padding": 5,
-
+  "autosize": "pad",
+  "padding": 10,
+  
+    
+  
+   "title": {
+    "text": {"signal": "'Students 2018/19 FSA results in Grade 7, Compared to their Grade 4 results from 2015/16 '"},
+    "anchor": "start",
+    "frame": "bounds",
+     "fontSize": 19,
+     "dy":-30,
+     "dx":0
+   },
+  "style": "cell",
   "data": [
+    {"name": "highlight_store"},
     {
-      "name": "gapminder",
-      "url": "data/gapminder.json"
-    },
-    {
-      "name": "clusters",
+      "name": "source_0",
       "values": [
-        {"id": 0, "name": "South Asia"},
-        {"id": 1, "name": "Europe & Central Asia"},
-        {"id": 2, "name": "Sub-Saharan Africa"},
-        {"id": 3, "name": "America"},
-        {"id": 4, "name": "East Asia & Pacific"},
-        {"id": 5, "name": "Middle East & North Africa"}
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"1",	"TOTAL":"16",	"color":"3",	"RESULT_4":"(1) Exceeds Expectations",	"RESULT_7":"(3) Emerging",	"PERCENT":"6%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"10",	"TOTAL":"16",	"color":"3",	"RESULT_4":"(1) Exceeds Expectations",	"RESULT_7":"(2) On Track",	"PERCENT":"63%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"5",	"TOTAL":"16",	"color":"2",	"RESULT_4":"(1) Exceeds Expectations",	"RESULT_7":"(1) Extending",	"PERCENT":"31%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"72",	"TOTAL":"201",	"color":"3",	"RESULT_4":"(2) Meets Expectations",	"RESULT_7":"(3) Emerging",	"PERCENT":"36%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"117",	"TOTAL":"201",	"color":"2",	"RESULT_4":"(2) Meets Expectations",	"RESULT_7":"(2) On Track",	"PERCENT":"58%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"4",	"TOTAL":"201",	"color":"1",	"RESULT_4":"(2) Meets Expectations",	"RESULT_7":"(1) Extending",	"PERCENT":"2%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"8",	"TOTAL":"201",	"color":"3",	"RESULT_4":"(2) Meets Expectations",	"RESULT_7":"(4) Did Not Participate",	"PERCENT":"4%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"10",	"TOTAL":"52",	"color":"1",	"RESULT_4":"(3) Not Yet Within Expectations",	"RESULT_7":"(2) On Track",	"PERCENT":"19%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"39",	"TOTAL":"52",	"color":"2",	"RESULT_4":"(3) Not Yet Within Expectations",	"RESULT_7":"(3) Emerging",	"PERCENT":"75%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"3",	"TOTAL":"52",	"color":"3",	"RESULT_4":"(3) Not Yet Within Expectations",	"RESULT_7":"(4) Did Not Participate",	"PERCENT":"6%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"11",	"TOTAL":"85",	"color":"1",	"RESULT_4":"(4) Did Not Paticipate",	"RESULT_7":"(2) On Track",	"PERCENT":"13%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"45",	"TOTAL":"85",	"color":"1",	"RESULT_4":"(4) Did Not Paticipate",	"RESULT_7":"(3) Emerging",	"PERCENT":"53%"},
+{"SD":"005",	"DISTRICT_NAME":"Southeast Kootenay",	"SKILL":"NU",	"COUNTS":"29",	"TOTAL":"85",	"color":"2",	"RESULT_4":"(4) Did Not Paticipate",	"RESULT_7":"(4) Did Not Participate",	"PERCENT":"34%"}
+      ]
+    }, {
+                      "name": "data",
+                      "source": "source_0",
+                      "transform": [
+                      {"type":"filter", "expr":"datum.DISTRICT_NAME == 'Southeast Kootenay'"},
+                      {"type":"filter", "expr":"datum.SKILL == 'NU'"}                                 
+                      ]
+                    },
+    {
+      "name": "data_0",
+      "source": "data",
+      "transform": [{"type": "identifier", "as": "_vgsid_"}
+                    
       ]
     },
     {
-      "name": "country_timeline",
-      "source": "gapminder",
-      "transform": [
-        {"type": "filter", "expr": "timeline && datum.country == timeline.country"},
-        {"type": "collect", "sort": {"field": "year"}}
-      ]
-    },
-    {
-      "name": "thisYear",
-      "source": "gapminder",
-      "transform": [
-        {"type": "filter", "expr": "datum.year == currentYear"}
-      ]
-    },
-    {
-      "name": "prevYear",
-      "source": "gapminder",
-      "transform": [
-        {"type": "filter", "expr": "datum.year == currentYear - stepYear"}
-      ]
-    },
-    {
-      "name": "nextYear",
-      "source": "gapminder",
-      "transform": [
-        {"type": "filter", "expr": "datum.year == currentYear + stepYear"}
-      ]
-    },
-    {
-      "name": "countries",
-      "source": "gapminder",
-      "transform": [
-        {"type": "aggregate", "groupby": ["country"]}
-      ]
-    },
-    {
-      "name": "interpolate",
-      "source": "countries",
+      "name": "data_1",
+      "source": "data_0",
       "transform": [
         {
-          "type": "lookup",
-          "from": "thisYear", "key": "country",
-          "fields": ["country"], "as": ["this"],
-          "default": {}
-        },
-        {
-          "type": "lookup",
-          "from": "prevYear", "key": "country",
-          "fields": ["country"], "as": ["prev"],
-          "default": {}
-        },
-        {
-          "type": "lookup",
-          "from": "nextYear", "key": "country",
-          "fields": ["country"], "as": ["next"],
-          "default": {}
-        },
-        {
-          "type": "formula",
-          "as": "target_fertility",
-          "expr": "interYear > currentYear ? datum.next.fertility : (datum.prev.fertility||datum.this.fertility)"
-        },
-        {
-          "type": "formula",
-          "as": "target_life_expect",
-          "expr": "interYear > currentYear ? datum.next.life_expect : (datum.prev.life_expect||datum.this.life_expect)"
-        },
-        {
-          "type": "formula",
-          "as": "inter_fertility",
-          "expr": "interYear==2000 ? datum.this.fertility : datum.this.fertility + (datum.target_fertility-datum.this.fertility) * abs(interYear-datum.this.year)/5"
-        },
-        {
-          "type": "formula",
-          "as": "inter_life_expect",
-          "expr": "interYear==2000 ? datum.this.life_expect : datum.this.life_expect + (datum.target_life_expect-datum.this.life_expect) * abs(interYear-datum.this.year)/5"
+          "type": "filter",
+          "expr": "datum[\"color\"] !== null && !isNaN(datum[\"color\"])"
+        
         }
-      ]
-    },
-    {
-      "name": "trackCountries",
-      "on": [
-        {"trigger": "active", "toggle": "{country: active.country}"}
+        
       ]
     }
+    
+ 
   ],
-
   "signals": [
-    { "name": "minYear", "value": 1955 },
-    { "name": "maxYear", "value": 2005 },
-    { "name": "stepYear", "value": 5 },
+    { "name": "fields",
+      "value": ["EXCEEDS", "MEETS", "NOT_YET","UNKNOWN"] },
+    {"name": "x_step", "value": 160},
+    {"name": "width", "update": "bandspace(domain('x').length, 0, 0) * x_step"},
+    {"name": "y_step", "value": 70},
     {
-      "name": "active",
+      "name": "height",
+      "update": "bandspace(domain('y').length, 0, 0) * y_step"
+    },
+    {
+      "name": "unit",
       "value": {},
       "on": [
-        {"events": "@point:mousedown, @point:touchstart", "update": "datum"},
-        {"events": "window:mouseup, window:touchend", "update": "{}"}
+        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
       ]
     },
-    { "name": "isActive", "update": "active.country" },
+    {"name": "highlight", "update": "vlSelectionResolve(\"highlight_store\")"},
     {
-      "name": "timeline",
-      "value": {},
+      "name": "highlight_tuple",
       "on": [
-        {"events": "@point:mouseover", "update": "isActive ? active : datum"},
-        {"events": "@point:mouseout", "update": "active"},
-        {"events": {"signal": "active"}, "update": "active"}
+        {
+          "events": [{"source": "scope", "type": "click"}],
+          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_0\", fields: highlight_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"_vgsid_\"]]} : null",
+          "force": true
+        },
+        {"events": [{"source": "scope", "type": "dblclick"}], "update": "null"}
       ]
     },
     {
-      "name": "tX",
-      "on": [{
-        "events": "mousemove!, touchmove!",
-        "update": "isActive ? scale('x', active.this.fertility) : tX"
-      }]
+      "name": "highlight_tuple_fields",
+      "value": [{"type": "E", "field": "_vgsid_"}]
     },
     {
-      "name": "tY",
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? scale('y', active.this.life_expect) : tY"
-      }]
+      "name": "highlight_modify",
+      "update": "modify(\"highlight_store\", highlight_tuple, true)"
     },
-    {
-      "name": "pX",
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? scale('x', active.prev.fertility) : pX"
-      }]
-    },
-    {
-      "name": "pY",
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? scale('y', active.prev.life_expect) : pY"
-      }]
-    },
-    {
-      "name": "nX",
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? scale('x', active.next.fertility) : nX"
-      }]
-    },
-    {
-      "name": "nY",
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? scale('y', active.next.life_expect) : nY"
-      }]
-    },
-    {
-      "name": "thisDist",
-      "value": 0,
-      "on":[{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? sqrt(pow(x()-tX, 2) + pow(y()-tY, 2)) : thisDist"
-      }]
-    },
-    {
-      "name": "prevDist",
-      "value": 0,
-      "on":[{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? sqrt(pow(x()-pX, 2) + pow(y()-pY, 2)): prevDist"
-      }]
-    },
-    {
-      "name": "nextDist",
-      "value": 0,
-      "on":[{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? sqrt(pow(x()-nX, 2) + pow(y()-nY, 2)) : nextDist"
-      }]
-    },
-    {
-      "name": "prevScore",
-      "value": 0,
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? ((pX-tX) * (x()-tX) + (pY-tY) * (y()-tY))/prevDist || -999999 : prevScore"
-      }]
-    },
-    {
-      "name": "nextScore",
-      "value": 0,
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? ((nX-tX) * (x()-tX) + (nY-tY) * (y()-tY))/nextDist || -999999 : nextScore"
-      }]
-    },
-    {
-      "name": "interYear",
-      "value": 1980,
-      "on": [{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? (min(maxYear, currentYear+5, max(minYear, currentYear-5, prevScore > nextScore ? (currentYear - 2.5*prevScore/sqrt(pow(pX-tX, 2) + pow(pY-tY, 2))) : (currentYear + 2.5*nextScore/sqrt(pow(nX-tX, 2) + pow(nY-tY, 2)))))) : interYear"
-      }]
-    },
-    {
-      "name": "currentYear",
-      "value": 1980,
-      "on":[{
-        "events": "mousemove, touchmove",
-        "update": "isActive ? (min(maxYear, max(minYear, prevScore > nextScore ? (thisDist < prevDist ? currentYear : currentYear-5) : (thisDist < nextDist ? currentYear : currentYear+5)))) : currentYear"
-      }]
-    }
+     {"name": "palette", "value": "YellowGreenBlue",
+      "bind": {
+        "input": "select",
+        "options": [
+          "YellowGreenBlue",
+          "Viridis",
+          "Magma",
+          "Inferno",
+          "Plasma",
+          "DarkBlue",
+          "DarkGold",
+          "DarkGreen",
+          "DarkMulti",
+          "DarkRed",
+          "LightGreyRed",
+          "LightGreyTeal",
+          "LightMulti",
+          "LightOrange",
+          "LightTealBlue",
+          "Blues",
+          "Browns",
+          "Greens",
+          "Greys",
+          "Oranges",
+          "Purples",
+          "Reds",
+          "TealBlues",
+          "Teals",
+          "WarmGreys",
+          "BlueOrange",
+          "BrownBlueGreen",
+          "PurpleGreen",
+          "PinkYellowGreen",
+          "PurpleOrange",
+          "RedBlue",
+          "RedGrey",
+          "RedYellowBlue",
+          "RedYellowGreen",
+          "BlueGreen",
+          "BluePurple",
+          "GoldGreen",
+          "GoldOrange",
+          "GoldRed",
+          "GreenBlue",
+          "OrangeRed",
+          "PurpleBlueGreen",
+          "PurpleBlue",
+          "PurpleRed",
+          "RedPurple",
+          "YellowGreenBlue",
+          "YellowGreen",
+          "YellowOrangeBrown",
+          "YellowOrangeRed"
+        ]
+      }}
   ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "rect",
+      "style": ["rect"],
+      "from": {"data": "data_1"},
+      "encode": {
+        "enter": {"tooltip": {"signal": "datum"}},
+        "update": {
+          "strokeWidth": {"value": 2},
+          
+          "fill": {"scale": "fill", "field": "color"},
+          "stroke": [
+            {
+              "test": "(!(length(data(\"highlight_store\"))) || (vlSelectionTest(\"highlight_store\", datum))) && (length(data(\"highlight_store\")))",
+              "value": "black"
+            }
+          ],
+          
+          "x": {"scale": "x", "field": "RESULT_7"},
+          "width": {"scale": "x", "band": true},
+          "y": {"scale": "y", "field": "RESULT_4"},
+          "height": {"scale": "y", "band": true},
+          "stroke": {"value": null},
+          "zindex": {"value": 0}
+        },
+          "hover": {
+                                                                        "stroke": {"value": "black"},
+                                                                        "zindex": {"value": 3}
+                                                                      }
+      }
+      },
+    {
+      "name": "layer_1_marks",
+      "type": "text",
+      "style": ["text"],
+      "from": {"data": "data_1"},
+      "interactive":false,
+      "encode": {
+        "enter": {"fontSize":{"value":20},
+        "tooltip": {"signal": "datum"}
+        },
+        "update": {
+           "fill": [
+            {"test": "datum['color'] > null", "value": "#666666"},
+            {"value": "#666666"}
+          ],
+          "x": {"scale": "x", "field": "RESULT_7", "band": 0.5},
+          "y": {"scale": "y", "field": "RESULT_4", "band": 0.5},
+          "text": {"signal": "''+datum[\"PERCENT\"]"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"}
+        }
+      }
+    },
+  {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "data_1",
+                                          "name": "rec",
+                                          "groupby": "RESULT_4"
+                                        }
+                                      },
 
+                                      "encode": {
+                                        "enter": {
+                                          "x": {"scale": "x", "field": "RESULT_7", "band": 0.5},
+                                          "y": {"scale": "y", "field": "RESULT_4", "band": 0.5}
+                                        }
+                                      },
+
+                                      "data": [
+                                        {
+                                          "name": "reccurrent",
+                                          "source": "rec"
+                                        
+                                        }
+                                      ],
+                                            
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "reccurrent"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "fill":{"value":"#666666"},
+                                                                  "text": {"field":"TOTAL"},
+                                                                  "tooltip": {"signal": "datum"},
+                                                                    "fontSize":{"value":15},
+                                                                     "align": {"value": "left"},
+                                                                    "baseline": {"value": "middle"},
+                                                                     "x":{"offset":-70 }
+                                                              
+                                                                  }
+                                                                  }
+                                                        }
+                                        
+
+                                                    ]
+
+  }
+        
+  ],
   "scales": [
     {
       "name": "x",
-      "type": "linear", "nice": true,
-      "domain": {"data": "gapminder", "field": "fertility"},
-      "range": "width"
+      "type": "band",
+      "domain": {
+        "fields": [
+          {"data": "data_1", "field": "RESULT_7"},
+          {"data": "data_0", "field": "RESULT_7"}
+        ],
+        "sort": true
+      },
+      "range": {"step": {"signal": "x_step"}},
+      "paddingInner": 0,
+      "paddingOuter": 0
     },
     {
       "name": "y",
-      "type": "linear", "nice": true, "zero": false,
-      "domain": {"data": "gapminder", "field": "life_expect"},
-      "range": "height"
+      "type": "band",
+      "domain": {
+        "fields": [
+          {"data": "data_1", "field": "RESULT_4"},
+          {"data": "data_0", "field": "RESULT_4"}
+        ],
+        "sort": true
+      },
+      "range": {"step": {"signal": "y_step"}},
+      "paddingInner": 0,
+      "paddingOuter": 0
     },
-    {
-      "name": "color",
-      "type": "ordinal",
-      "domain": {"data": "gapminder", "field": "cluster"},
-      "range": "category"
-    },
-    {
-      "name": "label",
-      "type": "ordinal",
-      "domain": {"data": "clusters", "field": "id"},
-      "range": {"data": "clusters", "field": "name"}
-    }
+     {
+  "name": "fill",
+  "type": "ordinal",
+  "domain": {"data": "data_1","field": "color"},
+  "range": ["lightgrey", "#eac84b","#b9caff"]
+}
   ],
-
   "axes": [
     {
-      "title": "Fertility",
-      "orient": "bottom", "scale": "x",
-      "grid": true, "tickCount": 5
+      "scale": "x",
+      "orient": "top",
+      "grid": true,
+      "title": "FSA result in grade 7",
+      "labelAngle": 0,
+      "labelBaseline": "middle",
+      "zindex": 0,
+      "labelPadding":-22,
+      "labelAlign":"center",
+      "labelColor":"#666666",
+      "titlePadding":20,
+      "bandPosition":1,
+      "titleFont":10,
+      "tickExtra":true,
+      "labelFontSize":15,
+      "tickSize":40,
+      "titleColor":"#555555",
+      "gridColor":"lightgrey"
     },
     {
-      "title": "Life Expectancy",
-      "orient": "left", "scale": "y",
-      "grid": true, "tickCount": 5
+      "scale": "y",
+      "orient": "left",
+      "grid": true,
+      "gridColor":"lightgrey",
+      "zindex": 0,
+      "labelPadding":0,
+      "labelLimit":350,
+      "labelColor":"#666666",
+       "tickSize":340,
+       "tickColor":"lightgrey",
+       "bandPosition":1,
+       "tickExtra":true,
+       "title": "FSA result in grade 4            Number of Students   ",
+        "titlePadding":0,
+        "titleFont":10,
+        "titleColor":"#555555",
+        "labelFontSize":15,
+        "titleAngle":0,
+        "titleX":-170,
+        "offset":0,
+        "titleY":-10,
+        "titleFontSize":12,
+        "labelAlign":"left"
     }
   ],
-
   "legends": [
     {
-      "fill": "color",
-      "title": "Region",
-      "orient": "right",
-      "encode": {
-        "symbols": {
-          "enter": {
-            "fillOpacity": {"value": 0.5}
-          }
-        },
-        "labels": {
-          "update": {
-            "text": {"scale": "label", "field": "value"}
-          }
-        }
-      }
+      "fill": "fill",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "symbolType": "square",
+      "title": "color",
+      "encode": {"gradient": {"update": {"opacity": {"value": 1}},"gradientColor":"viridis"}}
     }
   ],
-
-  "marks": [
-    {
-      "type": "text",
-      "encode": {
-        "update": {
-          "text": {"signal": "currentYear"},
-          "x": {"value": 300},
-          "y": {"value": 300},
-          "fill": {"value": "grey"},
-          "fillOpacity": {"value": 0.25},
-          "fontSize": {"value": 100}
-        }
-      }
-    },
-    {
-      "type": "text",
-      "from": {"data": "country_timeline"},
-      "interactive": false,
-      "encode": {
-        "enter": {
-          "x": {"scale": "x", "field": "fertility", "offset": 5},
-          "y": {"scale": "y", "field": "life_expect"},
-          "fill": {"value": "#555"},
-          "fillOpacity": {"value": 0.6},
-          "text": {"field": "year"}
-        }
-      }
-    },
-    {
-      "type": "line",
-      "from": {"data": "country_timeline"},
-      "encode": {
-        "update": {
-          "x": {"scale": "x", "field": "fertility"},
-          "y": {"scale": "y", "field": "life_expect"},
-          "stroke": {"value": "#bbb"},
-          "strokeWidth": {"value": 5},
-          "strokeOpacity": {"value": 0.5}
-        }
-      }
-    },
-    {
-      "name": "point",
-      "type": "symbol",
-      "from": {"data": "interpolate"},
-      "encode": {
-        "enter": {
-          "fill": {"scale": "color", "field": "this.cluster"},
-          "size": {"value": 150}
-        },
-        "update": {
-          "x": {"scale": "x", "field": "inter_fertility"},
-          "y": {"scale": "y", "field": "inter_life_expect"},
-          "fillOpacity": [
-            {
-              "test": "datum.country==timeline.country || indata('trackCountries', 'country', datum.country)",
-              "value": 1
-            },
-            {"value": 0.5}
-          ]
-        }
-      }
-    },
-    {
-      "type": "text",
-      "from": {"data": "interpolate"},
-      "interactive": false,
-      "encode": {
-        "enter": {
-          "fill": {"value": "#333"},
-          "fontSize": {"value": 14},
-          "fontWeight": {"value": "bold"},
-          "text": {"field": "country"},
-          "align": {"value": "center"},
-          "baseline": {"value": "bottom"}
-        },
-        "update": {
-          "x": {"scale": "x", "field": "inter_fertility"},
-          "y": {"scale": "y", "field": "inter_life_expect", "offset": -7},
-          "fillOpacity": [
-            {
-              "test": "datum.country==timeline.country || indata('trackCountries', 'country', datum.country)",
-              "value": 0.8
-            },
-            {"value": 0}
-          ]
-        }
-      }
-    }
-  ]
+  "config": {
+    "axis": {"domain": false, "zindex": 0},
+    "range": {"ramp": {"scheme": "yellowgreenblue"}}
+  }
 }
