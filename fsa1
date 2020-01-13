@@ -1,0 +1,616 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 584,
+  "padding": 5,
+ 
+  "config": {
+    "axisBand": {
+      "bandPosition": 1,
+      "tickExtra": true,
+      "tickOffset": 0,
+      "labelFontSize": 11,
+      "labelPadding":13,
+      "tickSize":120
+      
+    }
+  },
+
+  "signals": [
+    { "name": "fields",
+      "value": ["04 Numeracy ABORIGINAL",
+                    "04 Numeracy ALL STUDENTS",
+                    "04 Numeracy SPECIAL NEEDS",
+                    "04 Reading Comprehension ABORIGINAL",
+                    "04 Reading Comprehension ALL STUDENTS",
+                    "04 Reading Comprehension SPECIAL NEEDS",
+                    "04 Writing ABORIGINAL",
+                    "04 Writing ALL STUDENTS",
+                    "04 Writing SPECIAL NEEDS",
+                    "07 Numeracy ABORIGINAL",
+                    "07 Numeracy ALL STUDENTS",
+                    "07 Numeracy SPECIAL NEEDS",
+                    "07 Reading Comprehension ABORIGINAL",
+                    "07 Reading Comprehension ALL STUDENTS",
+                    "07 Reading Comprehension SPECIAL NEEDS",
+                    "07 Writing ABORIGINAL",
+                    "07 Writing ALL STUDENTS",
+                    "07 Writing SPECIAL NEEDS"] },
+                        { "name": "plotWidth", "value": 15 },
+                        { "name": "height", "update": "(plotWidth + 8) * length(fields)"},
+  
+    {"name": "District",
+      "value": "Southeast Kootenay",
+      "bind": {
+        "input": "select",
+        "options": [
+          "PROVINCE",
+          "Kootenay Lake",
+"Kootenay-Columbia",
+"Richmond",
+"Burnaby",
+"Haida Gwaii",
+"Nicola-Similkameen",
+"Peace River South",
+"Kamloops-Thompson",
+"Vancouver Island West",
+"Nisga'a",
+"Southeast Kootenay",
+"Rocky Mountain",
+"Greater Victoria",
+"Alberni",
+"Fort Nelson",
+"Nechako Lakes",
+"Revelstoke",
+"Vernon",
+"Cariboo-Chilcotin",
+"Sea to Sky",
+"Central Coast",
+"Peace River North",
+"Sooke",
+"Saanich",
+"Campbell River",
+"Chilliwack",
+"Langley",
+"Delta",
+"North Vancouver",
+"Boundary",
+"Prince Rupert",
+"Bulkley Valley",
+"Prince George",
+"Fraser-Cascade",
+"Conseil scolaire francophone",
+"Arrow Lakes",
+"Central Okanagan",
+"New Westminster",
+"Okanagan Similkameen",
+"Qualicum",
+"Coast Mountains",
+"Vancouver Island North",
+"Surrey",
+"Vancouver",
+"Coquitlam",
+"Gulf Islands",
+"Comox Valley",
+"Mission",
+"Nanaimo-Ladysmith",
+"Cowichan Valley",
+"Stikine",
+"Quesnel",
+"Abbotsford",
+"Maple Ridge-Pitt Meadows",
+"West Vancouver",
+"Sunshine Coast",
+"Powell River",
+"Okanagan Skaha",
+"Gold Trail",
+"North Okanagan-Shuswap"
+        ]
+      }
+    }
+    
+  ],
+
+   "title": {
+    "text":["                                                                      Total               Participation","Grade   Skill             Student Group              Writers           Rate"],
+    "anchor": "start",
+    "frame": "bounds",
+     "fontSize": 14,
+     "dy":18,
+     "fontWeight":100,
+     "color":"#666666"   
+     
+  },
+
+  "data": [
+    {
+                      "name": "provlvl",
+                      "values": [
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Numeracy",	"subpop":"04 Numeracy All Students",	"subpop_label":"All Students",	"writers":"396",	"participation":"95%",	"value":".61",	"max":".62",	"min":".61",	"percentile_25":".56",	"percentile_75":".69"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Numeracy",	"subpop":"04 Numeracy Indigenous",	"subpop_label":"Indigenous",	"writers":"68",	"participation":"96%",	"value":".59",	"max":".59",	"min":".42",	"percentile_25":".42",	"percentile_75":".58"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Numeracy",	"subpop":"04 Numeracy Special Needs",	"subpop_label":"Special Needs",	"writers":"25",	"participation":"100%",	"value":".4",	"max":".5",	"min":".4",	"percentile_25":".29",	"percentile_75":".57"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Reading Comprehension",	"subpop":"04 Reading Comprehension All Students",	"subpop_label":"All Students",	"writers":"400",	"participation":"96%",	"value":".73",	"max":".73",	"min":".71",	"percentile_25":".67",	"percentile_75":".78"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Reading Comprehension",	"subpop":"04 Reading Comprehension Indigenous",	"subpop_label":"Indigenous",	"writers":"69",	"participation":"97%",	"value":".62",	"max":".68",	"min":".62",	"percentile_25":".55",	"percentile_75":".72"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Reading Comprehension",	"subpop":"04 Reading Comprehension Special Needs",	"subpop_label":"Special Needs",	"writers":"25",	"participation":"100%",	"value":".52",	"max":".68",	"min":".52",	"percentile_25":".5",	"percentile_75":".75"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Writing",	"subpop":"04 Writing All Students",	"subpop_label":"All Students",	"writers":"377",	"participation":"91%",	"value":".73",	"max":".77",	"min":".73",	"percentile_25":".82",	"percentile_75":".93"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Writing",	"subpop":"04 Writing Indigenous",	"subpop_label":"Indigenous",	"writers":"65",	"participation":"92%",	"value":".71",	"max":".71",	"min":".71",	"percentile_25":".72",	"percentile_75":".9"},
+{"district":"Southeast Kootenay",	"year":"2017/2018",	"skill":"Writing",	"subpop":"04 Writing Special Needs",	"subpop_label":"Special Needs",	"writers":"24",	"participation":"96%",	"value":".71",	"max":".71",	"min":".64",	"percentile_25":".64",	"percentile_75":".9"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Numeracy",	"subpop":"04 Numeracy All Students",	"subpop_label":"All Students",	"writers":"388",	"participation":"89%",	"value":".62",	"max":".62",	"min":".61",	"percentile_25":".56",	"percentile_75":".69"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Numeracy",	"subpop":"04 Numeracy Indigenous",	"subpop_label":"Indigenous",	"writers":"66",	"participation":"89%",	"value":".42",	"max":".59",	"min":".42",	"percentile_25":".42",	"percentile_75":".58"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Numeracy",	"subpop":"04 Numeracy Special Needs",	"subpop_label":"Special Needs",	"writers":"28",	"participation":"78%",	"value":".5",	"max":".5",	"min":".4",	"percentile_25":".29",	"percentile_75":".57"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Reading Comprehension",	"subpop":"04 Reading Comprehension All Students",	"subpop_label":"All Students",	"writers":"394",	"participation":"90%",	"value":".71",	"max":".73",	"min":".71",	"percentile_25":".67",	"percentile_75":".78"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Reading Comprehension",	"subpop":"04 Reading Comprehension Indigenous",	"subpop_label":"Indigenous",	"writers":"66",	"participation":"89%",	"value":".68",	"max":".68",	"min":".62",	"percentile_25":".55",	"percentile_75":".72"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Reading Comprehension",	"subpop":"04 Reading Comprehension Special Needs",	"subpop_label":"Special Needs",	"writers":"28",	"participation":"78%",	"value":".68",	"max":".68",	"min":".52",	"percentile_25":".5",	"percentile_75":".75"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Writing",	"subpop":"04 Writing All Students",	"subpop_label":"All Students",	"writers":"390",	"participation":"89%",	"value":".77",	"max":".77",	"min":".73",	"percentile_25":".82",	"percentile_75":".93"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Writing",	"subpop":"04 Writing Indigenous",	"subpop_label":"Indigenous",	"writers":"62",	"participation":"84%",	"value":".71",	"max":".71",	"min":".71",	"percentile_25":".72",	"percentile_75":".9"},
+{"district":"Southeast Kootenay",	"year":"2018/2019",	"skill":"Writing",	"subpop":"04 Writing Special Needs",	"subpop_label":"Special Needs",	"writers":"28",	"participation":"78%",	"value":".64",	"max":".71",	"min":".64",	"percentile_25":".64",	"percentile_75":".9"}
+
+                ]
+                    },
+                            {
+                      "name": "distminmax",
+                      "source": "provlvl",
+                      "transform": [
+                      {"type":"filter", "expr":"datum.district == District"}                                  
+                      ]
+                    },
+
+                    {
+                      "name": "distcurrent",
+                      "source": "provlvl",
+                      "transform": [{"type":"filter", "expr":"datum.year == '2018/2019'"},
+                      {"type":"filter", "expr":"datum.district == District"}
+                                    ]
+                    },
+
+                    {
+                      "name": "quartiles",
+                      "source": "provlvl",
+                      "transform": [{"type":"filter", "expr":"datum.year == '2018/2019'"}]
+                    }
+                  ],
+
+            "scales": [
+                    {
+                      "name": "layout",
+                      "type": "band",
+                      "range": "height",
+                      "domain": {"data": "provlvl", "field": "subpop"}
+                      
+                    }, 
+                    {
+                      "name": "xscale",
+                      "type": "linear",
+                      "range": "width", "round": false,
+                      "domain": {"data": "provlvl", "field": "value"},
+                      "zero": true, "nice": true,
+                      "domainMax":1
+                                
+                    },
+                         {
+                      "name": "test",
+                      "type": "band",
+                      "range": "height",
+                      "domain": {"data": "provlvl", "field": "school_year"}
+                      
+                    },
+                    
+                         {
+                      "name": "skill",
+                      "type": "band",
+                      "range": "height",
+                      "domain": {"data": "provlvl", "field": "skill"}
+                      
+                    },
+                    
+                    
+                         {
+                      "name": "grade",
+                      "type": "band",
+                      "range": "height",
+                      "domain": {"data": "provlvl", "field": "subpop"}
+                      
+                    }
+                  ],
+
+                  "axes": [
+
+                    {"ticks":false,"labels":false,"orient": "left", "scale": "layout", "tickCount": 5, "zindex": 1,"labelFontSize":15,"grid": true,"gridColor":"#666666","labelAlign":"left","labelColor":"#666666","tickSize":330,"labelPadding":0,"labelLimit":30},
+
+                       {"ticks":true,"labels":false,"orient": "left", "scale": "grade","tickSize":330},
+                  
+                    
+                 
+                    
+                    {"labels":false,"orient": "left", "scale": "test","tickSize":460,"title":["4"],"titleAngle":0,"titleFontSize":15, "titleY":25,"titleX":-455,"titleColor":"#666666","titleFontWeight":"100"},
+                  
+                                    
+                    
+                    {"labels":false,"orient": "left", "scale": "skill", "tickCount": 100,"tickSize":10, "zindex": 1,"title":["Reading"],"titleAngle":0,"titleFontSize":15, "titleY":25,"titleX":-380,"titleColor":"#666666","titleFontWeight":"100"},
+
+                    {"labels":false,"orient": "left", "scale": "skill", "tickCount": 100,"tickSize":410, "zindex": 1,"title":["Writing"],"titleAngle":0,"titleFontSize":15, "titleY":165,"titleX":-380,"titleColor":"#666666","titleFontWeight":"100"},
+
+                    {"labels":false,"orient": "left", "scale": "skill", "tickCount": 100,"tickSize":410, "zindex": 1,"title":["Numeracy"],"titleAngle":0,"titleFontSize":15, "titleY":300,"titleX":-375,"titleColor":"#666666","titleFontWeight":"100"},
+                    
+                             
+                    
+                    
+                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989"},
+                     {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989"}
+                  ]
+,
+
+"marks": [
+                        {
+                                        "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "quartiles",
+                                          "name": "province",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+
+                                      "data": [
+                                        {
+                                          "name": "provsummary",
+                                          "source": "province",
+                                          "transform": [
+                                            {
+                                              "type": "aggregate",
+                                              "fields": ["value", "value"],
+                                              "ops": ["q1","q3"],
+                                              "as": ["q1","q3"]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                           
+                                                      "marks": [
+                                                        {
+                                                          
+                                                          "type": "rect",
+                                                          "from": {"data": "province"},
+                                                          "encode": {
+                                                            "enter": {
+                                                              "fill": {"value": "#d9d9d9"},
+                                                              "cornerRadius": {"value": 1},
+                                                              "tooltip": {"signal": "{'Average 25th Percentile':format(datum.percentile_25, '0.0%'),'Average 75th Percentile':format(datum.percentile_75, '0.0%')}"}
+                                                            },
+                                                            "update": {
+                                                              "yc": {"signal": "plotWidth / 2"},
+                                                              "height": {"signal": "plotWidth / .35"},
+                                                              "x": {"scale": "xscale", "field": "percentile_25"},
+                                                              "x2": {"scale": "xscale", "field": "percentile_75"},
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                            },
+                                                            "hover": {
+                                                                        "stroke": {"value": "grey"},
+                                                                        "zindex": {"value": 5}
+                                                                      }
+                                                          
+                                                          
+                                                          }
+                                                        }
+                                                    ]
+
+
+        },
+  {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "current",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+
+                                      "data": [
+                                        {
+                                          "name": "summarycurrent",
+                                          "source": "current"
+                                        
+                                        }
+                                      ],
+
+
+            
+                                            
+                             "marks": [
+
+                                         {
+                                                              "type": "symbol",
+                                                              "from": {"data": "summarycurrent"},
+                                                              "encode": {
+                                                                "enter": {
+                      "description":"below command turns off symbol if value is set to 'MSK'",   
+                                                                
+                                                                    "fill": [
+                                                                  {"test": "datum['value'] =='MSK'", "value":""},
+                                                                  {"test": "datum['writers'] ==0", "value":""},
+                                                                  {"value": "#f28e2b"}],
+                                                                  "width": {"value": 2}
+                                                                  ,"size":{"value": 420},
+                                                                  "tooltip": {
+                                "signal": "{'District':datum.district,'Student Group':datum.subpop,'School Year':datum.year,'Records':datum.records,'Share On Track Or Extending':format(datum.value, '0.0%'),'District 5 year minimum':format(datum.min, '0.0%'),'District 5 year maximum':format(datum.max, '0.0%')}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 2"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x": {"aggregate":"value","scale": "xscale",                                                                                                  "field": "value"},
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 0}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        }
+        ,          
+          {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distminmax",
+                                          "name": "district",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+
+                      
+                                            
+                                                      "marks": [
+                                                                                                 {"type":                                                                  "rect",
+                                                        "from": {"data": "district"},
+                                                        "encode": {
+                                                          "enter": {
+                                                            "fill": [
+                                                            {"test": "datum['writers'] =='MSK'", "min":""},
+                                                            {"test": "datum['writers'] =='MSK'", "max":""},
+                                                            {"value": "#f28e2b"}],
+                                                           
+                                                            "tooltip": 
+                {"signal": "{'District':datum.district,'Student Group':datum.subpop,'School Year':datum.year,'Records':datum.records,'Share On Track Or Extending':format(datum.value, '0.0%'),'District 5 year minimum':format(datum.min, '0.0%'),'District 5 year maximum':format(datum.max, '0.0%')}"}
+                                                          },
+                                                          "update": {
+                                                            "yc": {"signal": "plotWidth / 2.1", "offset": -0.5},
+                                                            "x": {"scale": "xscale", "field": "min"},
+                                                            "x2": {"scale": "xscale", "field": "max"},
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 10},
+                                                                          "height": {"value": 4.5}
+                                                            },
+                                                            "hover": {
+                                                                        "stroke": {"value": "black"},
+                                                                     
+                                                                        "strokeWidth": {"value": 1},
+                                                                        "zindex": {"value": 10},
+                                                                        "height": {"value": 6}
+                                                                      }
+                                                        }
+                                                      }
+                                                    ]
+
+
+        },
+        
+        
+        {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "rec",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+               
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "rec"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "text": {"field":"participation"},
+                                                                    "fontSize":{"value":15},
+                                                                    
+                                                                    
+                                                                  "fill": {"value": "#898989"},
+                      
+                                                                  "tooltip": {
+                                "signal": "{'District':datum.district,'Student Group':datum.subpop,'School Year':datum.year,'Records':datum.records,'Share On Track Or Extending':format(datum.value, '0.0%'),'District 5 year minimum':format(datum.min, '0.0%'),'District 5 year maximum':format(datum.max, '0.0%')}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 1.5"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x":{"offset":-98 },
+                                                                  
+                                                                  
+                                                                  
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 1}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        },
+
+            {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "rec",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+               
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "rec"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "text": {"field":"writers"},
+                                                                    "fontSize":{"value":15},
+                                                                    
+                                                                    
+                                                                  "fill": {"value": "#898989"},
+                      
+                                                                  "tooltip": {
+                                "signal": "{'District':datum.district,'Student Group':datum.subpop,'School Year':datum.year,'Records':datum.records,'Share On Track Or Extending':format(datum.value, '0.0%')}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 1.5"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x":{"offset":-185 },
+                                                                  
+                                                                  
+                                                                  
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 1}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        },
+
+            {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "rec",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+               
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "rec"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "text": {"field":"subpop_label"},
+                                                                    "fontSize":{"value":15},
+                                                                    
+                                                                    
+                                                                  "fill": {"value": "#898989"},
+                      
+                                                                  "tooltip": {
+                                "signal": "{'District':datum.district,'Student Group':datum.subpop,'School Year':datum.year,'Records':datum.records,'Share On Track Or Extending':format(datum.value, '0.0%')}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 1.5"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x":{"offset":-330 },
+                                                                  
+                                                                  
+                                                                  
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 1}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        }
+            
+
+      ]
+
+}
