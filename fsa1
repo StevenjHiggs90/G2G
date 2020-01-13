@@ -36,77 +36,7 @@
                     "07 Writing ALL STUDENTS",
                     "07 Writing SPECIAL NEEDS"] },
                         { "name": "plotWidth", "value": 15 },
-                        { "name": "height", "update": "(plotWidth + 8) * length(fields)"},
-  
-    {"name": "District",
-      "value": "Southeast Kootenay",
-      "bind": {
-        "input": "select",
-        "options": [
-          "PROVINCE",
-          "Kootenay Lake",
-"Kootenay-Columbia",
-"Richmond",
-"Burnaby",
-"Haida Gwaii",
-"Nicola-Similkameen",
-"Peace River South",
-"Kamloops-Thompson",
-"Vancouver Island West",
-"Nisga'a",
-"Southeast Kootenay",
-"Rocky Mountain",
-"Greater Victoria",
-"Alberni",
-"Fort Nelson",
-"Nechako Lakes",
-"Revelstoke",
-"Vernon",
-"Cariboo-Chilcotin",
-"Sea to Sky",
-"Central Coast",
-"Peace River North",
-"Sooke",
-"Saanich",
-"Campbell River",
-"Chilliwack",
-"Langley",
-"Delta",
-"North Vancouver",
-"Boundary",
-"Prince Rupert",
-"Bulkley Valley",
-"Prince George",
-"Fraser-Cascade",
-"Conseil scolaire francophone",
-"Arrow Lakes",
-"Central Okanagan",
-"New Westminster",
-"Okanagan Similkameen",
-"Qualicum",
-"Coast Mountains",
-"Vancouver Island North",
-"Surrey",
-"Vancouver",
-"Coquitlam",
-"Gulf Islands",
-"Comox Valley",
-"Mission",
-"Nanaimo-Ladysmith",
-"Cowichan Valley",
-"Stikine",
-"Quesnel",
-"Abbotsford",
-"Maple Ridge-Pitt Meadows",
-"West Vancouver",
-"Sunshine Coast",
-"Powell River",
-"Okanagan Skaha",
-"Gold Trail",
-"North Okanagan-Shuswap"
-        ]
-      }
-    }
+                        { "name": "height", "update": "(plotWidth + 8) * length(fields)"}
     
   ],
 
@@ -148,17 +78,14 @@
                     },
                             {
                       "name": "distminmax",
-                      "source": "provlvl",
-                      "transform": [
-                      {"type":"filter", "expr":"datum.district == District"}                                  
-                      ]
+                      "source": "provlvl"
+                     
                     },
 
                     {
                       "name": "distcurrent",
                       "source": "provlvl",
-                      "transform": [{"type":"filter", "expr":"datum.year == '2018/2019'"},
-                      {"type":"filter", "expr":"datum.district == District"}
+                      "transform": [{"type":"filter", "expr":"datum.year == '2018/2019'"}
                                     ]
                     },
 
