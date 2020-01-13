@@ -1,0 +1,385 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 984,
+  "height": 600,
+  "padding": 50,
+
+  "signals": [
+    { "name": "method", "value": "tidy",
+      "bind": {"input": "select", "options": ["tidy", "cluster"]} },
+    { "name": "separation", "value": true, "bind": {"input": "checkbox"} }
+  ],
+  
+
+  "data": [
+    {
+      "name": "tree",
+      "values": [{"id": "A","parent": null,"write":["Grade 8 Students in 2006/07","(adjusted for migration","in and out of B.C)"],"district":"Arrow Lakes","students":"65","BOX1":["100%","of student group"]},{"id": "B","parent": "A","write":"K-12 Non-Graduates","district":"Arrow Lakes","NON_GRADS":"13","PCT_NON_GRADS_DEPARTS":["20% Of Original","Student Group"]},{"id": "C","parent": "A","write":"K-12 Graduates","district":"Arrow Lakes","GRADS":"52","PCT_GRADS_DEPARTS":["80% Of Original","Student Group"]},{"id": "D","parent": "B","write":["No Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","NON_GRAD_NO_PSI":"8","PCT_NON_GRAD_NO_PSI_NONGRAD":"61.5% of non-graduates","PCT_NON_GRAD_NO_PSI_DEPARTS":["12.3% of original","student group"]},{"id": "E","parent": "B","write":["Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","NON_GRAD_HAS_PSI":"5","PCT_NON_GRAD_HAS_PSI_NONGRAD":"38.5% of non-graduates","PCT_NON_GRAD_HAS_PSI_DEPARTS":["7.7% of original","student group"]},{"id": "F","parent": "C","write":["No Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","GRAD_NO_PSI":"10","PCT_GRAD_NO_PSI_GRAD":"19.2% of graduates","PCT_GRAD_NO_PSI_DEPARTS":["15.4% of original","student group"]},{"id": "G","parent": "C","write":["Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","GRAD_HAS_PSI":"42","PCT_GRAD_HAS_PSI_GRAD":"80.8% of graduates","PCT_GRAD_HAS_PSI_DEPARTS":["64.6% of original","student group"]}],
+      "transform": [
+       
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "tree",
+          "method": {"signal": "method"},
+          "separation": false,
+          "size": [1200,600]
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "tree",
+      "transform": [
+        { "type": "treelinks" },
+        { "type": "linkpath" }
+      ]
+    }
+  ],
+
+  "scales": [
+        {
+  "name": "color",
+  "type": "ordinal",
+  "domain": {"data": "tree","field": "id"},
+  "range": ["#71c5ae", "#4092ce","#4092ce","#99bfe6","#f3bb47","#99bfe6","#f3bb47"]
+},
+    {
+      "name": "x",
+      "type": "band",
+      "domain": {
+        "fields": [
+          {"data": "tree", "field": "id"},
+          {"data": "tree", "field": "id"}
+        ],
+        "sort": true
+      },
+      "range":"width",
+      "paddingInner": 0,
+      "paddingOuter": 0
+    },
+    {
+      "name": "y",
+      "type": "band",
+      "domain": {
+        "fields": [
+          {"data": "tree", "field": "parent"},
+          {"data": "tree", "field": "parent"}
+        ],
+        "sort": true
+      },
+      "range": "height",
+      "paddingInner": 0,
+      "paddingOuter": 0
+    }
+              ],
+
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "links"},
+      "encode": {
+        "enter": {
+          "stroke": {"value": "lightblue"},
+          "strokeWidth":{"value":10},
+          "strokeDash": {"value": [5,5]}
+        },
+        "update": {
+          "path": {"field": "path"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          
+          "fill": {"scale": "color", "field": "id"},
+          "stroke": {"value": "white"},
+          "size": {"value": 29900},
+          "shape":{"value":"M-1,-1H2.3V2H-1Z"}
+        },
+        "update": {
+          "x": {"field": "x","offset":-55},
+          "y": {"field": "y"}
+        }
+      }
+    },
+     {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"write"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":-50}
+        },
+        "update": {
+           "fill": [
+            {"test": "datum['id'] == 'D'", "value": "#666666"},
+            {"test": "datum['id'] == 'E'", "value": "#666666"},
+            {"test": "datum['id'] == 'F'", "value": "#666666"},
+            {"test": "datum['id'] == 'G'", "value": "#666666"},
+            {"value": "white"}
+          ]
+        }
+      }
+    },
+       {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"BOX1"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":120}
+        }
+      }
+    },
+     {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"students"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":60},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":65}
+        }
+      }
+    },  {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"NON_GRADS"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":50},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":40}
+        }
+      }
+    }, 
+    
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"GRADS"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":50},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":40}
+        }
+      }
+    },
+    
+    
+     {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_NON_GRADS_DEPARTS"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":27},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":120}
+        }
+      }
+    },
+     {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_GRADS_DEPARTS"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":27},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":120}
+        }
+      }
+    },
+     {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"NON_GRAD_NO_PSI"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":37},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":80}
+        }
+      }
+    }, {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_NON_GRAD_NO_PSI_NONGRAD"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":110}
+        }
+      }
+    }, 
+    
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"NON_GRAD_HAS_PSI"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":37},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":80}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_NON_GRAD_HAS_PSI_NONGRAD"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":110}
+        }
+      }
+    }
+
+    , 
+    
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"GRAD_NO_PSI"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":37},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":80}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_GRAD_NO_PSI_GRAD"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":110}
+        }
+      }
+    }
+
+    , 
+    
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"GRAD_HAS_PSI"},
+          "fill":{"value":"white"},
+          "fontSize":{"value":37},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":80}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_GRAD_HAS_PSI_GRAD"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":110}
+        }
+      }
+    }
+    ,
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_NON_GRAD_NO_PSI_DEPARTS"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":135}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_NON_GRAD_HAS_PSI_DEPARTS"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":135}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_GRAD_NO_PSI_DEPARTS"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":135}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field":"PCT_GRAD_HAS_PSI_DEPARTS"},
+          "fill":{"value":"#666666"},
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-130},
+          "y": {"field": "y","offset":135}
+        }
+      }
+    }
+  
+  
+  
+  
+  
+  
+  ]
+  
+}
