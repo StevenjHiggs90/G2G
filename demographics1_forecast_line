@@ -1,0 +1,489 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 900,
+  "height": 500,
+  "style": "cell",
+  "data": [
+    {"name": "hover_store"},
+    {
+      "name": "source_0",
+      "values": [
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2003/2004",
+          "y": "16052",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2004/2005",
+          "y": "15823",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2005/2006",
+          "y": "15509",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2006/2007",
+          "y": "15068",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2007/2008",
+          "y": "15235",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2008/2009",
+          "y": "14956",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2009/2010",
+          "y": "15087",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2010/2011",
+          "y": "15121",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2011/2012",
+          "y": "15004",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2012/2013",
+          "y": "14792",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2013/2014",
+          "y": "14459",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2014/2015",
+          "y": "14504",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2015/2016",
+          "y": "14408",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2016/2017",
+          "y": "14410",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2017/2018",
+          "y": "14664",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops-Thompson",
+          "sd": "073",
+          "x": "2018/2019",
+          "y": "15027",
+          "forecast": "0"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2019/2020",
+          "y": "15249",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2020/2021",
+          "y": "15414",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2021/2022",
+          "y": "15649",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2022/2023",
+          "y": "15872",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2023/2024",
+          "y": "16100",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2024/2025",
+          "y": "16334",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2025/2026",
+          "y": "16454",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2026/2027",
+          "y": "16638",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2027/2028",
+          "y": "16691",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2028/2029",
+          "y": "16863",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2029/2030",
+          "y": "17012",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2030/2031",
+          "y": "17134",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2031/2032",
+          "y": "17317",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2032/2033",
+          "y": "17475",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2033/2034",
+          "y": "17618",
+          "forecast": "1"
+        },
+        {
+          "district": "Kamloops - Thompson",
+          "sd": "073",
+          "x": "2034/2035",
+          "y": "17764",
+          "forecast": "1"
+        }
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {"type": "filter", "expr": "(vlSelectionTest(\"hover_store\", datum))"},
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"y\"]) && isFinite(+datum[\"y\"])"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
+      ]
+    },
+    {
+      "name": "hover",
+      "update": "vlSelectionResolve(\"hover_store\", \"union\")"
+    },
+    {
+      "name": "hover_tuple",
+      "on": [
+        {
+          "events": [
+            {
+              "source": "scope",
+              "type": "mouseover",
+              "markname": "layer_1_voronoi"
+            }
+          ],
+          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_1\", fields: hover_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"x\"]]} : null",
+          "force": true
+        },
+        {"events": [{"source": "scope", "type": "mouseout"}], "update": "null"}
+      ]
+    },
+    {"name": "hover_tuple_fields", "value": [{"type": "E", "field": "x"}]},
+    {
+      "name": "hover_modify",
+      "on": [
+        {
+          "events": {"signal": "hover_tuple"},
+          "update": "modify(\"hover_store\", hover_tuple, true)"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_layer_0_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_0_layer_0_main",
+          "data": "source_0",
+          "groupby": ["forecast"]
+        }
+      },
+      "encode": {
+        "update": {
+          "width": {"field": {"group": "width"}},
+          "height": {"field": {"group": "height"}}
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_0_layer_0_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "datum[\"x\"]"},
+          "interactive": false,
+          "from": {"data": "faceted_path_layer_0_layer_0_main"},
+          "encode": {
+            "update": {
+              "stroke": {"scale": "color", "field": "forecast"},
+              "x": {"scale": "x", "field": "x", "band": 0.5},
+              "y": {"scale": "y", "field": "y"},
+              "defined": {
+                "signal": "isValid(datum[\"y\"]) && isFinite(+datum[\"y\"])"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "layer_0_layer_1_marks",
+      "type": "symbol",
+      "style": ["point"],
+      "interactive": false,
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 0.7},
+          "fill": {"value": "transparent"},
+          "stroke": {"scale": "color", "field": "forecast"},
+          "x": {"scale": "x", "field": "x", "band": 0.5},
+          "y": {"scale": "y", "field": "y"}
+        }
+      }
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "rule",
+      "style": ["rule"],
+      "interactive": true,
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "black"},
+          "opacity": [
+            {"test": "(vlSelectionTest(\"hover_store\", datum))", "value": 0.3},
+            {"value": 0}
+          ],
+          "tooltip": {
+            "signal": "{\"y\": format(datum[\"y\"], \"\"), \"x\": ''+datum[\"x\"], \"district\": ''+datum[\"district\"]}"
+          },
+          "x": {"scale": "x", "field": "x", "band": 0.5},
+          "y": {"field": {"group": "height"}},
+          "y2": {"value": 0}
+        }
+      }
+    },
+    {
+      "name": "layer_1_voronoi",
+      "type": "path",
+      "interactive": true,
+      "from": {"data": "layer_1_marks"},
+      "encode": {
+        "update": {
+          "fill": {"value": "transparent"},
+          "strokeWidth": {"value": 0.35},
+          "stroke": {"value": "transparent"},
+          "isVoronoi": {"value": true},
+          "tooltip": {
+            "signal": "{ \"School District\": ''+datum.datum[\"district\"],\"Students\": format(datum.datum[\"y\"], \"\"), \"School Year\": ''+datum.datum[\"x\"]}"
+          }
+        }
+      },
+      "transform": [
+        {
+          "type": "voronoi",
+          "x": {"expr": "datum.datum.x || 0"},
+          "y": {"expr": "datum.datum.y || 0"},
+          "size": [{"signal": "width"}, {"signal": "height"}]
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "x"},
+          {"data": "data_0", "field": "x"}
+        ],
+        "sort": true
+      },
+      "range": [0, {"signal": "width"}],
+      "paddingInner": 1,
+      "paddingOuter": 0
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "y"},
+          {"data": "data_0", "field": "y"}
+        ]
+      },
+      "range": [{"signal": "height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "forecast"},
+          {"data": "data_0", "field": "forecast"}
+        ],
+        "sort": true
+      },
+      "range": "category"
+    }
+  ],
+  "axes": [
+    {
+      "scale": "y",
+      "orient": "left",
+      "gridScale": "x",
+      "grid": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "domain": false,
+      "labels": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "x",
+      "labelAngle": 27,
+      "labelBaseline": "middle",
+      "labelAlign":"left",
+      "labelOverlap": true,
+      "labelPadding":10,
+      "zindex": 0,
+      "labelFontSize":12,"labelColor":"#666666"
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "y",
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "zindex": 0,
+      "scale": "y","tickCount":6,"labelFontSize":12,"labelColor":"#666666",
+      "format":"s"
+    }
+  ],
+  "legends": [
+    {
+      "stroke": "color",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "symbolType": "circle",
+      "title": "forecast",
+      "encode": {
+        "symbols": {
+          "update": {
+            "fill": {"value": "transparent"},
+            "opacity": {"value": 0.7}
+          }
+        }
+      }
+    }
+  ]
+}
