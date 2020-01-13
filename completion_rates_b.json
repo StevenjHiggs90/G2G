@@ -3,77 +3,22 @@
   "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
   "autosize": "pad",
   "padding": 5,
-  "width": 984,
-  "height": 384,
+  "width": 850,
+  "height": 310,
   "style": "cell",
   "data": [
     {
-      "name": "comp",
-      "values": [
-        {"Subpop":"ABORIGINAL",	"Completion Rate":".57",	"records":"70",	"district":"Southeast Kootenay",	"School Year":"2004/2005"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".88",	"records":"651",	"district":"Southeast Kootenay",	"School Year":"2004/2005"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".66",	"records":"79",	"district":"Southeast Kootenay",	"School Year":"2005/2006"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".86",	"records":"647",	"district":"Southeast Kootenay",	"School Year":"2005/2006"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".68",	"records":"90",	"district":"Southeast Kootenay",	"School Year":"2006/2007"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".81",	"records":"627",	"district":"Southeast Kootenay",	"School Year":"2006/2007"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".61",	"records":"81",	"district":"Southeast Kootenay",	"School Year":"2007/2008"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".84",	"records":"594",	"district":"Southeast Kootenay",	"School Year":"2007/2008"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".69",	"records":"83",	"district":"Southeast Kootenay",	"School Year":"2008/2009"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".74",	"records":"637",	"district":"Southeast Kootenay",	"School Year":"2008/2009"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".67",	"records":"80",	"district":"Southeast Kootenay",	"School Year":"2009/2010"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".81",	"records":"628",	"district":"Southeast Kootenay",	"School Year":"2009/2010"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".56",	"records":"91",	"district":"Southeast Kootenay",	"School Year":"2010/2011"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".75",	"records":"594",	"district":"Southeast Kootenay",	"School Year":"2010/2011"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".57",	"records":"77",	"district":"Southeast Kootenay",	"School Year":"2011/2012"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".77",	"records":"578",	"district":"Southeast Kootenay",	"School Year":"2011/2012"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".74",	"records":"105",	"district":"Southeast Kootenay",	"School Year":"2012/2013"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".79",	"records":"607",	"district":"Southeast Kootenay",	"School Year":"2012/2013"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".75",	"records":"81",	"district":"Southeast Kootenay",	"School Year":"2013/2014"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".78",	"records":"557",	"district":"Southeast Kootenay",	"School Year":"2013/2014"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".76",	"records":"80",	"district":"Southeast Kootenay",	"School Year":"2014/2015"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".77",	"records":"559",	"district":"Southeast Kootenay",	"School Year":"2014/2015"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".81",	"records":"65",	"district":"Southeast Kootenay",	"School Year":"2015/2016"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".77",	"records":"576",	"district":"Southeast Kootenay",	"School Year":"2015/2016"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".74",	"records":"97",	"district":"Southeast Kootenay",	"School Year":"2016/2017"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".73",	"records":"565",	"district":"Southeast Kootenay",	"School Year":"2016/2017"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".83",	"records":"83",	"district":"Southeast Kootenay",	"School Year":"2017/2018"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".84",	"records":"524",	"district":"Southeast Kootenay",	"School Year":"2017/2018"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".7",	"records":"47",	"district":"Rocky Mountain",	"School Year":"2004/2005"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".84",	"records":"384",	"district":"Rocky Mountain",	"School Year":"2004/2005"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".75",	"records":"56",	"district":"Rocky Mountain",	"School Year":"2005/2006"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".85",	"records":"364",	"district":"Rocky Mountain",	"School Year":"2005/2006"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".76",	"records":"66",	"district":"Rocky Mountain",	"School Year":"2006/2007"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".82",	"records":"376",	"district":"Rocky Mountain",	"School Year":"2006/2007"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".55",	"records":"55",	"district":"Rocky Mountain",	"School Year":"2007/2008"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".86",	"records":"375",	"district":"Rocky Mountain",	"School Year":"2007/2008"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".64",	"records":"60",	"district":"Rocky Mountain",	"School Year":"2008/2009"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".78",	"records":"362",	"district":"Rocky Mountain",	"School Year":"2008/2009"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".56",	"records":"64",	"district":"Rocky Mountain",	"School Year":"2009/2010"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".79",	"records":"387",	"district":"Rocky Mountain",	"School Year":"2009/2010"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".76",	"records":"52",	"district":"Rocky Mountain",	"School Year":"2010/2011"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".81",	"records":"368",	"district":"Rocky Mountain",	"School Year":"2010/2011"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".76",	"records":"56",	"district":"Rocky Mountain",	"School Year":"2011/2012"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".79",	"records":"348",	"district":"Rocky Mountain",	"School Year":"2011/2012"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".75",	"records":"61",	"district":"Rocky Mountain",	"School Year":"2012/2013"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".77",	"records":"398",	"district":"Rocky Mountain",	"School Year":"2012/2013"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".63",	"records":"52",	"district":"Rocky Mountain",	"School Year":"2013/2014"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".79",	"records":"320",	"district":"Rocky Mountain",	"School Year":"2013/2014"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".76",	"records":"46",	"district":"Rocky Mountain",	"School Year":"2014/2015"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".76",	"records":"323",	"district":"Rocky Mountain",	"School Year":"2014/2015"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".67",	"records":"55",	"district":"Rocky Mountain",	"School Year":"2015/2016"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".66",	"records":"386",	"district":"Rocky Mountain",	"School Year":"2015/2016"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".82",	"records":"56",	"district":"Rocky Mountain",	"School Year":"2016/2017"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".71",	"records":"347",	"district":"Rocky Mountain",	"School Year":"2016/2017"},
-{"Subpop":"ABORIGINAL",	"Completion Rate":".8",	"records":"48",	"district":"Rocky Mountain",	"School Year":"2017/2018"},
-{"Subpop":"ALL STUDENTS",	"Completion Rate":".69",	"records":"317",	"district":"Rocky Mountain",	"School Year":"2017/2018"}
-      ]
+      "name": "data1",
+      "values":
+[{"district":"Abbotsford","district_number":"034","School Year":"2002/2003","subpop":"BC Residents","Completion Rate":".78","records":"1132"},{"district":"Abbotsford","district_number":"034","School Year":"2018/2019","subpop":"BC Residents","Completion Rate":".91","records":"1277"},{"district":"Abbotsford","district_number":"034","School Year":"2017/2018","subpop":"BC Residents","Completion Rate":".9","records":"1271"},{"district":"Abbotsford","district_number":"034","School Year":"2016/2017","subpop":"BC Residents","Completion Rate":".9","records":"1325"},{"district":"Abbotsford","district_number":"034","School Year":"2015/2016","subpop":"BC Residents","Completion Rate":".92","records":"1355"},{"district":"Abbotsford","district_number":"034","School Year":"2014/2015","subpop":"BC Residents","Completion Rate":".91","records":"1347"},{"district":"Abbotsford","district_number":"034","School Year":"2013/2014","subpop":"BC Residents","Completion Rate":".92","records":"1366"},{"district":"Abbotsford","district_number":"034","School Year":"2012/2013","subpop":"BC Residents","Completion Rate":".93","records":"1414"},{"district":"Abbotsford","district_number":"034","School Year":"2011/2012","subpop":"BC Residents","Completion Rate":".88","records":"1352"},{"district":"Abbotsford","district_number":"034","School Year":"2010/2011","subpop":"BC Residents","Completion Rate":".9","records":"1427"},{"district":"Abbotsford","district_number":"034","School Year":"2009/2010","subpop":"BC Residents","Completion Rate":".87","records":"1314"},{"district":"Abbotsford","district_number":"034","School Year":"2008/2009","subpop":"BC Residents","Completion Rate":".86","records":"1309"},{"district":"Abbotsford","district_number":"034","School Year":"2007/2008","subpop":"BC Residents","Completion Rate":".82","records":"1179"},{"district":"Abbotsford","district_number":"034","School Year":"2006/2007","subpop":"BC Residents","Completion Rate":".82","records":"1280"},{"district":"Abbotsford","district_number":"034","School Year":"2005/2006","subpop":"BC Residents","Completion Rate":".82","records":"1236"},{"district":"Abbotsford","district_number":"034","School Year":"2004/2005","subpop":"BC Residents","Completion Rate":".82","records":"1131"},{"district":"Abbotsford","district_number":"034","School Year":"2003/2004","subpop":"BC Residents","Completion Rate":".84","records":"1202"},{"district":"Abbotsford","district_number":"034","School Year":"2002/2003","subpop":"Indigenous","Completion Rate":".51","records":"47"},{"district":"Abbotsford","district_number":"034","School Year":"2018/2019","subpop":"Indigenous","Completion Rate":".8","records":"163"},{"district":"Abbotsford","district_number":"034","School Year":"2017/2018","subpop":"Indigenous","Completion Rate":".8","records":"155"},{"district":"Abbotsford","district_number":"034","School Year":"2016/2017","subpop":"Indigenous","Completion Rate":".77","records":"147"},{"district":"Abbotsford","district_number":"034","School Year":"2015/2016","subpop":"Indigenous","Completion Rate":".72","records":"121"},{"district":"Abbotsford","district_number":"034","School Year":"2014/2015","subpop":"Indigenous","Completion Rate":".75","records":"151"},{"district":"Abbotsford","district_number":"034","School Year":"2013/2014","subpop":"Indigenous","Completion Rate":".75","records":"147"},{"district":"Abbotsford","district_number":"034","School Year":"2012/2013","subpop":"Indigenous","Completion Rate":".78","records":"149"},{"district":"Abbotsford","district_number":"034","School Year":"2011/2012","subpop":"Indigenous","Completion Rate":".65","records":"125"},{"district":"Abbotsford","district_number":"034","School Year":"2010/2011","subpop":"Indigenous","Completion Rate":".68","records":"108"},{"district":"Abbotsford","district_number":"034","School Year":"2009/2010","subpop":"Indigenous","Completion Rate":".61","records":"109"},{"district":"Abbotsford","district_number":"034","School Year":"2008/2009","subpop":"Indigenous","Completion Rate":".62","records":"108"},{"district":"Abbotsford","district_number":"034","School Year":"2007/2008","subpop":"Indigenous","Completion Rate":".57","records":"81"},{"district":"Abbotsford","district_number":"034","School Year":"2006/2007","subpop":"Indigenous","Completion Rate":".51","records":"75"},{"district":"Abbotsford","district_number":"034","School Year":"2005/2006","subpop":"Indigenous","Completion Rate":".59","records":"75"},{"district":"Abbotsford","district_number":"034","School Year":"2004/2005","subpop":"Indigenous","Completion Rate":".56","records":"68"},{"district":"Abbotsford","district_number":"034","School Year":"2003/2004","subpop":"Indigenous","Completion Rate":".66","records":"70"}],
+"transform": [
+        {"type": "formula", "as": "records", "expr": "format(datum.records,',.0f')"}]
+
+
     },
           {
                       "name": "filt",
-                      "source": "comp",
-                      "transform": [
-                      {"type":"filter", "expr":"datum.district == 'Southeast Kootenay'"}                                  
-                      ]
+                      "source": "data1"
                     },
     {
       "name": "data_0",
@@ -132,9 +77,9 @@
       "encode": {
         "update": {
           "opacity": {"value": 1},
-          "fill": {"scale": "color", "field": "Subpop"},
+          "fill": {"scale": "color", "field": "subpop"},
           "tooltip": {
-            "signal": "{'District':datum.district,\"School Year\": ''+datum[\"School Year\"], \"Subpop\": ''+datum[\"Subpop\"], \"Completion Rate\": format(datum[\"Completion Rate\"], \"0.0%\"),\"records\": ''+datum[\"records\"]}"
+            "signal": "{'District':datum.district,\"School Year\": ''+datum[\"School Year\"], \"Student Group\": ''+datum[\"subpop\"], \"Completion Rate\": format(datum[\"Completion Rate\"], \"0.0%\"),\"Total number of graduates\": ''+datum[\"records\"]}"
           },
           "x": {"scale": "x", "field": "School Year"},
           "y": {"scale": "y", "field": "Completion Rate"},
@@ -174,7 +119,7 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": ["ABORIGINAL", "ALL STUDENTS"],
+      "domain": ["Indigenous", "BC Residents"],
       "range": ["#4e79a7", "#f28e2b"],
       "interpolate": "hcl"
     }
@@ -218,10 +163,10 @@
       "format": "0.0%",
       "labelFontSize": 15,
       "titleFontSize": 20,
-      "titlePadding": 30,
+      "titlePadding": 20,
       "labelOverlap": true,
       "labelColor":"#898989",
-      "tickCount": {"signal": "ceil(height/40)"},
+      "tickCount": {"signal": "ceil(height/50)"},
       "zindex": 0
     }
   ],
