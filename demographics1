@@ -1,0 +1,229 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 220,
+  "padding": 5,
+ 
+  "config": {
+    "axisBand": {
+      "bandPosition": 1,
+      "tickExtra": true,
+      "tickOffset": 0,
+      "labelFontSize": 11,
+      "labelPadding":13,
+      "tickSize":120
+      
+    }
+  },
+
+  "signals": [
+    { "name": "fields",
+      "value": ["1", "2", "3","4", "5"] },
+    { "name": "plotWidth", "value": 30 },
+    { "name": "height", "update": "(plotWidth + 10) * length(fields)"}
+  
+
+    
+  ],
+
+
+  "data": [
+    {
+                      "name": "provlvl",
+                      "values":
+        [{"district":"036","district_name":"Surrey","records":"65.4%","subpop":"Percent of participation in Labour Force","Province":"64.6%"},{"district":"036","district_name":"Surrey","records":"$92729","subpop":"Average Family Income Economic Families","Province":"$91967"},{"district":"036","district_name":"Surrey","records":"40.9%","subpop":"Percent of 25-54 without Post-Secondary Credentials","Province":"35.2%"},{"district":"036","district_name":"Surrey","records":"1.7%","subpop":"Percent of 15-24 year-olds Recieving Employemnt Insurance","Province":"1.5%"},{"district":"036","district_name":"Surrey","records":"14.9%","subpop":"Percent of Lone Parent Families","Province":"15.3%"}]
+                    },
+                            {
+                      "name": "distminmax",
+                      "source": "provlvl"
+                    },
+
+                    {
+                      "name": "distcurrent",
+                      "source": "provlvl"
+                                    
+                    },
+
+                    {
+                      "name": "quartiles",
+                      "source": "provlvl"
+                    }
+                  ],
+
+            "scales": [
+                    {
+                      "name": "layout",
+                      "type": "band",
+                      "range": "height",
+                      "domain": {"data": "provlvl", "field": "subpop"}
+                      
+                    }, 
+                    {
+                      "name": "xscale",
+                      "type": "linear",
+                      "range": "width", "round": false,
+                      "domain": {"data": "provlvl", "field": "value"},
+                      "zero": true, "nice": true,
+                      "domainMax":1
+                                
+                    }
+                  ],
+
+                  "axes": [
+                                        {"orient": "left", "scale": "layout","zindex": 1,"labelFontSize":15,"labelAlign":"left","labelColor":"#666666","tickSize":620,"labelPadding":0,"labelLimit":1000,"grid":true,"gridColor":"#666666","tickColor":"#666666","title":"District                              Province","titleAngle":0,"titleY":-5,"titleX":15,"titleFontSize":15,"titleFontWeight":100,"titleColor":"#666666"},
+
+                   
+                   
+                    {"orient": "bottom", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelFlush":true},
+
+                    {"orient": "top", "scale": "xscale", "zindex": 1,"format":"%","labelFontSize":15,"labelAlign":"","labelColor":"#898989","labelFlush":true, "offset":0.5,"grid":true}
+                  ]
+,
+
+"marks": [
+                   
+        
+        
+        {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "rec",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+
+                                      "data": [
+                                        {
+                                          "name": "reccurrent",
+                                          "source": "rec"
+                                        
+                                        }
+                                      ],
+
+
+            
+                                            
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "reccurrent"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "text": {"field":"records"},
+                                                                    "fontSize":{"value":15},
+                                                                    
+                                                                    
+                                                                  "fill": {"value": "#898989"},
+                      
+                                                                  "tooltip": {
+                                "signal": "{'School District':datum.district_name,'':datum.subpop,' ':datum.records}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 1.5"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x":{"offset":-100 },
+                                                                  
+                                                                  
+                                                                  
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 1}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        },  {
+                                         "type": "group",
+                                      "from": {
+                                        "facet": {
+                                          "data": "distcurrent",
+                                          "name": "rec",
+                                          "groupby": "subpop"
+                                        }
+                                      },
+
+                                      "encode": {
+                                        "enter": {
+                                          "yc": {"scale": "layout", "field": "subpop", "band": 0.5},
+                                          "height": {"signal": "plotWidth"},
+                                          "width": {"signal": "width"}
+                                        }
+                                      },
+
+                                      "data": [
+                                        {
+                                          "name": "reccurrent",
+                                          "source": "rec"
+                                        
+                                        }
+                                      ],
+
+
+            
+                                            
+                             "marks": [
+
+                                         {
+                                                              "type": "text",
+                                                              "from": {"data": "reccurrent"},
+                                                              "encode": {
+                                                                "enter": {
+                                                                  "text": {"field":"Province"},
+                                                                    "fontSize":{"value":15},
+                                                                    
+                                                                    
+                                                                  "fill": {"value": "#898989"},
+                      
+                                                                  "tooltip": {
+                                "signal": "{'Province':datum.district_name,'':datum.subpop,' ':datum.Province}"
+                                                                }},
+                                                                "update": {
+                                                                  "yc": {"signal": "plotWidth / 1.5"},
+                                                                  "height": {"signal": "plotWidth / 50"},
+                                                                  "x":{"offset":80 },
+                                                                  
+                                                                  
+                                                                  
+                                                              "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+                                                                    },
+                                                                    "hover": {
+                                                                                "stroke": {"value": "black"},
+                                                                                "zindex": {"value": 1}
+                                                                              }
+                                                        }
+                                         }
+
+
+
+
+
+                                                    ]
+
+
+        }
+            
+
+      ]
+
+}
