@@ -301,7 +301,7 @@
                                 "value": 2
                             },
                             "size": {
-                                "value": 550
+                                "value": 350
                             },
                             "tooltip": {
                                 "signal": "{'Student Group':datum.subpop,'Completion Rate':datum.tooltip,'School Year':datum.year,'Records':datum.tooltipR,'5-year range for this district':datum.min_max_tooltip,'Typical range across B.C. (middle 50% of districts)':datum.province_percentile_tooltip}"
@@ -332,6 +332,9 @@
                             },
                             "zindex": {
                                 "value": 0
+                            },
+                            "size": {
+                                "value": 400
                             }
                         }
                     }
@@ -420,7 +423,7 @@
                                 "value": 10
                             },
                             "height": {
-                                "value": 5
+                                "value": 4.5
                             }
                         },
                         "hover": {
@@ -434,7 +437,7 @@
                                 "value": 10
                             },
                             "height": {
-                                "value": 7
+                                "value": 5.5
                             }
                         }
                     }
