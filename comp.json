@@ -1,595 +1,189 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "width": 756,
-    "padding": 5,
-    "config": {
-        "axisBand": {
-            "bandPosition": 1,
-            "tickExtra": true,
-            "tickOffset": 0,
-            "labelFontSize": 11,
-            "labelPadding": 13,
-            "tickSize": 120
-        }
-    },
-    "signals": [
-        {
-            "name": "fields",
-            "value": [
-                "All Students",
-                "Indigenous",
-                "Special Needs",
-                "BC Residents"
-            ]
-        },
-        {
-            "name": "plotWidth",
-            "value": 30
-        },
-        {
-            "name": "height",
-            "update": "(plotWidth + 10) * length(fields)"
-        },
-        {
-            "name": "selected",
-            "value": "",
-            "on": [
-                {
-                    "events": "arc:click!",
-                    "update": "datum"
-                },
-                {
-                    "events": "dblclick!",
-                    "update": "''"
-                }
-            ]
-        }
-    ],
-    "title": {
-        "text": {
-            "signal": "'Student Group               Records'"
-        },
-        "anchor": "start",
-        "frame": "bounds",
-        "fontSize": 14,
-        "fontWeight": "100",
-        "dy": 18,
-        "color": "#666666"
-    },
-    "data": [
-        {
-            "name": "provlvl",
-            "values": [{"district":"Chilliwack","district_number":"033","year":"2018/2019","subpop":"All Students","records":"1078","records2":"1078","value":".85","value2":".85","tooltip":"85%","tooltipR":"       1,078","max":".85","min":".79","percentile_25":".76","percentile_75":".86","min_max_tooltip":"79% - 85%","province_percentile_tooltip":"76% - 86%"},{"district":"Chilliwack","district_number":"033","year":"2018/2019","subpop":"BC Residents","records":"1021","records2":"1021","value":".87","value2":".87","tooltip":"87%","tooltipR":"       1,021","max":".87","min":".8","percentile_25":".81","percentile_75":".91","min_max_tooltip":"80% - 87%","province_percentile_tooltip":"81% - 91%"},{"district":"Chilliwack","district_number":"033","year":"2018/2019","subpop":"Indigenous","records":"188","records2":"188","value":".71","value2":".71","tooltip":"71%","tooltipR":"         188","max":".79","min":".62","percentile_25":".65","percentile_75":".76","min_max_tooltip":"62% - 79%","province_percentile_tooltip":"65% - 76%"},{"district":"Chilliwack","district_number":"033","year":"2018/2019","subpop":"Special Needs","records":"154","records2":"154","value":".68","value2":".68","tooltip":"68%","tooltipR":"         154","max":".75","min":".66","percentile_25":".61","percentile_75":".81","min_max_tooltip":"66% - 75%","province_percentile_tooltip":"61% - 81%"}],
-            "transform": [
-                {
-                    "type": "formula",
-                    "as": "records",
-                    "expr": "format(datum.records,',.0f')"
-                }
-            ]
-        },
-        {
-            "name": "distminmax",
-            "source": "provlvl"
-        },
-        {
-            "name": "distcurrent",
-            "source": "provlvl"
-        },
-        {
-            "name": "quartiles",
-            "source": "provlvl"
-        }
-    ],
-    "scales": [
-        {
-            "name": "layout",
-            "type": "band",
-            "range": "height",
-            "domain": {
-                "data": "provlvl",
-                "field": "subpop"
-            }
-        },
-        {
-            "name": "xscale",
-            "type": "linear",
-            "range": "width",
-            "round": false,
-            "domain": {
-                "data": "provlvl",
-                "field": "value"
-            },
-            "zero": true,
-            "nice": true,
-            "domainMax": 1
-        }
-    ],
-    "axes": [
-        {
-            "orient": "bottom",
-            "scale": "xscale",
-            "zindex": 1,
-            "format": "%",
-            "labelFontSize": 15,
-            "labelAlign": "",
-            "labelColor": "#898989",
-            "labelFlush": true
-        },
-        {
-            "orient": "left",
-            "scale": "layout",
-            "tickCount": 5,
-            "zindex": 1,
-            "labelFontSize": 15,
-            "grid": false,
-            "labelAlign": "left",
-            "labelColor": "#666666",
-            "tickSize": 230,
-            "labelPadding": 0
-        },
-        {
-            "orient": "top",
-            "scale": "xscale",
-            "zindex": 1,
-            "format": "%",
-            "labelFontSize": 15,
-            "labelAlign": "",
-            "labelColor": "#666666",
-            "labelFlush": true,
-            "offset": 0
-        },
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
+  "autosize": "pad",
+  "padding": 5,
+  "width": 875,
+  "height": 310,
+  "style": "cell",
+  "data": [
+    {
+      "name": "data1",
+      "values":
 
-         {
-            "orient": "right",
-            "scale": "layout",
-            "ticks": 0,
-            "labels": false,
-             "labelColor": "#666666"
-          
+
+[{"district":"Revelstoke","district_number":"019","School Year":"2002/2003","subpop":"BC Residents","Completion Rate":".89","success":"111"},{"district":"Revelstoke","district_number":"019","School Year":"2018/2019","subpop":"BC Residents","Completion Rate":".86","success":"60"},{"district":"Revelstoke","district_number":"019","School Year":"2017/2018","subpop":"BC Residents","Completion Rate":".84","success":"61"},{"district":"Revelstoke","district_number":"019","School Year":"2016/2017","subpop":"BC Residents","Completion Rate":".99","success":"77"},{"district":"Revelstoke","district_number":"019","School Year":"2015/2016","subpop":"BC Residents","Completion Rate":".9","success":"72"},{"district":"Revelstoke","district_number":"019","School Year":"2014/2015","subpop":"BC Residents","Completion Rate":".96","success":"78"},{"district":"Revelstoke","district_number":"019","School Year":"2013/2014","subpop":"BC Residents","Completion Rate":".93","success":"83"},{"district":"Revelstoke","district_number":"019","School Year":"2012/2013","subpop":"BC Residents","Completion Rate":".91","success":"82"},{"district":"Revelstoke","district_number":"019","School Year":"2011/2012","subpop":"BC Residents","Completion Rate":".88","success":"72"},{"district":"Revelstoke","district_number":"019","School Year":"2010/2011","subpop":"BC Residents","Completion Rate":".9","success":"82"},{"district":"Revelstoke","district_number":"019","School Year":"2009/2010","subpop":"BC Residents","Completion Rate":".99","success":"94"},{"district":"Revelstoke","district_number":"019","School Year":"2008/2009","subpop":"BC Residents","Completion Rate":".88","success":"92"},{"district":"Revelstoke","district_number":"019","School Year":"2007/2008","subpop":"BC Residents","Completion Rate":".8","success":"91"},{"district":"Revelstoke","district_number":"019","School Year":"2006/2007","subpop":"BC Residents","Completion Rate":".84","success":"108"},{"district":"Revelstoke","district_number":"019","School Year":"2005/2006","subpop":"BC Residents","Completion Rate":".85","success":"82"},{"district":"Revelstoke","district_number":"019","School Year":"2004/2005","subpop":"BC Residents","Completion Rate":".86","success":"101"},{"district":"Revelstoke","district_number":"019","School Year":"2003/2004","subpop":"BC Residents","Completion Rate":".79","success":"97"},{"district":"Revelstoke","district_number":"019","School Year":"2002/2003","subpop":"Indigenous","Completion Rate":".75","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2018/2019","subpop":"Indigenous","Completion Rate":".66","success":"7"},{"district":"Revelstoke","district_number":"019","School Year":"2017/2018","subpop":"Indigenous","Completion Rate":".61","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2016/2017","subpop":"Indigenous","Completion Rate":".9","success":"11"},{"district":"Revelstoke","district_number":"019","School Year":"2015/2016","subpop":"Indigenous","Completion Rate":".6","success":"5"},{"district":"Revelstoke","district_number":"019","School Year":"2014/2015","subpop":"Indigenous","Completion Rate":".76","success":"9"},{"district":"Revelstoke","district_number":"019","School Year":"2013/2014","subpop":"Indigenous","Completion Rate":".79","success":"10"},{"district":"Revelstoke","district_number":"019","School Year":"2012/2013","subpop":"Indigenous","Completion Rate":".8","success":"7"},{"district":"Revelstoke","district_number":"019","School Year":"2011/2012","subpop":"Indigenous","Completion Rate":".61","success":"7"},{"district":"Revelstoke","district_number":"019","School Year":"2010/2011","subpop":"Indigenous","Completion Rate":".62","success":"5"},{"district":"Revelstoke","district_number":"019","School Year":"2009/2010","subpop":"Indigenous","Completion Rate":".82","success":"9"},{"district":"Revelstoke","district_number":"019","School Year":"2008/2009","subpop":"Indigenous","Completion Rate":".53","success":"9"},{"district":"Revelstoke","district_number":"019","School Year":"2007/2008","subpop":"Indigenous","Completion Rate":".66","success":"13"},{"district":"Revelstoke","district_number":"019","School Year":"2006/2007","subpop":"Indigenous","Completion Rate":".63","success":"11"},{"district":"Revelstoke","district_number":"019","School Year":"2005/2006","subpop":"Indigenous","Completion Rate":".52","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2004/2005","subpop":"Indigenous","Completion Rate":".74","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2003/2004","subpop":"Indigenous","Completion Rate":".52","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2002/2003","subpop":"Special Needs","Completion Rate":".36","success":"4"},{"district":"Revelstoke","district_number":"019","School Year":"2018/2019","subpop":"Special Needs","Completion Rate":".66","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2017/2018","subpop":"Special Needs","Completion Rate":".84","success":"15"},{"district":"Revelstoke","district_number":"019","School Year":"2016/2017","subpop":"Special Needs","Completion Rate":".96","success":"18"},{"district":"Revelstoke","district_number":"019","School Year":"2015/2016","subpop":"Special Needs","Completion Rate":".7","success":"13"},{"district":"Revelstoke","district_number":"019","School Year":"2014/2015","subpop":"Special Needs","Completion Rate":".73","success":"12"},{"district":"Revelstoke","district_number":"019","School Year":"2013/2014","subpop":"Special Needs","Completion Rate":".94","success":"16"},{"district":"Revelstoke","district_number":"019","School Year":"2012/2013","subpop":"Special Needs","Completion Rate":".55","success":"6"},{"district":"Revelstoke","district_number":"019","School Year":"2011/2012","subpop":"Special Needs","Completion Rate":".62","success":"10"},{"district":"Revelstoke","district_number":"019","School Year":"2010/2011","subpop":"Special Needs","Completion Rate":".91","success":"19"},{"district":"Revelstoke","district_number":"019","School Year":"2009/2010","subpop":"Special Needs","Completion Rate":".69","success":"9"},{"district":"Revelstoke","district_number":"019","School Year":"2008/2009","subpop":"Special Needs","Completion Rate":".56","success":"8"},{"district":"Revelstoke","district_number":"019","School Year":"2007/2008","subpop":"Special Needs","Completion Rate":".55","success":"14"},{"district":"Revelstoke","district_number":"019","School Year":"2006/2007","subpop":"Special Needs","Completion Rate":".52","success":"9"},{"district":"Revelstoke","district_number":"019","School Year":"2005/2006","subpop":"Special Needs","Completion Rate":".47","success":"7"},{"district":"Revelstoke","district_number":"019","School Year":"2004/2005","subpop":"Special Needs","Completion Rate":".41","success":"6"},{"district":"Revelstoke","district_number":"019","School Year":"2003/2004","subpop":"Special Needs","Completion Rate":".29","success":"5"}]
+,
+"transform": [
+        {"type": "formula", "as": "success", "expr": "format(datum.success,',.0f')"},
+        {"type":"filter", "expr":"datum.subpop != 'Indigenous'"}
+        
+        ]
+
+    },
+          {
+                      "name": "filt",
+                      "source": "data1"
+                    },
+    {
+      "name": "data_0",
+      "source": "filt",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum[\"Completion Rate\"] !== null && !isNaN(datum[\"Completion Rate\"])"
         }
-    ],
-    "marks": [
-        {
-            "type": "group",
-            "from": {
-                "facet": {
-                    "data": "quartiles",
-                    "name": "province",
-                    "groupby": "subpop"
-                }
-            },
-            "encode": {
-                "enter": {
-                    "yc": {
-                        "scale": "layout",
-                        "field": "subpop",
-                        "band": 0.5
-                    },
-                    "height": {
-                        "signal": "plotWidth"
-                    },
-                    "width": {
-                        "signal": "width"
-                    }
-                }
-            },
-            "data": [
-                {
-                    "name": "provsummary",
-                    "source": "province",
-                    "transform": [
-                        {
-                            "type": "aggregate",
-                            "fields": [
-                                "value",
-                                "value"
-                            ],
-                            "ops": [
-                                "q1",
-                                "q3"
-                            ],
-                            "as": [
-                                "q1",
-                                "q3"
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "marks": [
-                {
-                    "type": "rect",
-                    "from": {
-                        "data": "province"
-                    },
-                    "encode": {
-                        "enter": {
-                            "fill": {
-                                "value": "#d9d9d9"
-                            },
-                            "cornerRadius": {
-                                "value": 1
-                            },
-                            "tooltip": {
-                                "signal": "{'Typical range across B.C. (middle 50% of districts)':datum.province_percentile_tooltip}"
-                            }
-                        },
-                        "update": {
-                            "yc": {
-                                "signal": "plotWidth / 2"
-                            },
-                            "height": {
-                                "signal": "plotWidth / .775"
-                            },
-                            "x": {
-                                "scale": "xscale",
-                                "field": "percentile_25"
-                            },
-                            "x2": {
-                                "scale": "xscale",
-                                "field": "percentile_75"
-                            },
-                            "stroke": {
-                                "value": null
-                            },
-                            "zindex": {
-                                "value": 0
-                            }
-                        },
-                        "hover": {
-                            "stroke": {
-                                "value": "grey"
-                            },
-                            "zindex": {
-                                "value": 1
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "from": {
-                "facet": {
-                    "data": "distcurrent",
-                    "name": "current",
-                    "groupby": "subpop"
-                }
-            },
-            "encode": {
-                "enter": {
-                    "yc": {
-                        "scale": "layout",
-                        "field": "subpop",
-                        "band": 0.5
-                    },
-                    "height": {
-                        "signal": "plotWidth"
-                    },
-                    "width": {
-                        "signal": "width"
-                    }
-                }
-            },
-            "data": [
-                {
-                    "name": "summarycurrent",
-                    "source": "current"
-                }
-            ],
-            "marks": [
-                {
-                    "type": "symbol",
-                    "from": {
-                        "data": "summarycurrent"
-                    },
-                    "encode": {
-                        "enter": {
-                            "description": "below command turns off symbol if value is set to 'MSK'",
-                            "fill": [
-                                {
-                                    "test": "datum['value'] =='MSK'",
-                                    "value": ""
-                                },
-                                {
-                                    "value": "#f28e2b"
-                                }
-                            ],
-                            "width": {
-                                "value": 2
-                            },
-                            "size": {
-                                "value": 550
-                            },
-                            "tooltip": {
-                                "signal": "{'Student Group':datum.subpop,'Completion Rate':datum.tooltip,'School Year':datum.year,'Records':datum.tooltipR,'5-year range for this district':datum.min_max_tooltip,'Typical range across B.C. (middle 50% of districts)':datum.province_percentile_tooltip}"
-                            }
-                        },
-                        "update": {
-                            "yc": {
-                                "signal": "plotWidth / 2"
-                            },
-                            "height": {
-                                "signal": "plotWidth / 50"
-                            },
-                            "x": {
-                                "aggregate": "value",
-                                "scale": "xscale",
-                                "field": "value"
-                            },
-                            "stroke": {
-                                "value": null
-                            },
-                            "zindex": {
-                                "value": 0
-                            }
-                        },
-                        "hover": {
-                            "stroke": {
-                                "value": "black"
-                            },
-                            "zindex": {
-                                "value": 0
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "from": {
-                "facet": {
-                    "data": "distminmax",
-                    "name": "district",
-                    "groupby": "subpop"
-                }
-            },
-            "encode": {
-                "enter": {
-                    "yc": {
-                        "scale": "layout",
-                        "field": "subpop",
-                        "band": 0.5
-                    },
-                    "height": {
-                        "signal": "plotWidth"
-                    },
-                    "width": {
-                        "signal": "width"
-                    }
-                }
-            },
-            "data": [
-                {
-                    "name": "distsummary",
-                    "source": "district",
-                    "transform": [
-                        {
-                            "type": "aggregate",
-                            "fields": [
-                                "value",
-                                "value"
-                            ],
-                            "ops": [
-                                "min",
-                                "max"
-                            ],
-                            "as": [
-                                "min",
-                                "max"
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "marks": [
-                {
-                    "type": "rect",
-                    "from": {
-                        "data": "district"
-                    },
-                    "encode": {
-                        "enter": {
-                            "fill": {
-                                "value": "#f28e2b"
-                            },
-                            "tooltip": {
-                                "signal": "{'Student Group':datum.subpop,'Completion Rate':datum.tooltip,'School Year':datum.year,'Records':datum.tooltipR,'5-year range for this district':datum.min_max_tooltip,'Typical range across B.C. (middle 50% of districts)':datum.province_percentile_tooltip}"
-                            }
-                        },
-                        "update": {
-                            "yc": {
-                                "signal": "plotWidth / 2",
-                                "offset": -0.5
-                            },
-                            "x": {
-                                "scale": "xscale",
-                                "field": "min"
-                            },
-                            "x2": {
-                                "scale": "xscale",
-                                "field": "max"
-                            },
-                            "stroke": {
-                                "value": null
-                            },
-                            "zindex": {
-                                "value": 10
-                            },
-                            "height": {
-                                "value": 5
-                            }
-                        },
-                        "hover": {
-                            "stroke": {
-                                "value": "black"
-                            },
-                            "strokeWidth": {
-                                "value": 1
-                            },
-                            "zindex": {
-                                "value": 10
-                            },
-                            "height": {
-                                "value": 7
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "from": {
-                "facet": {
-                    "data": "distcurrent",
-                    "name": "rec",
-                    "groupby": "subpop"
-                }
-            },
-            "encode": {
-                "enter": {
-                    "yc": {
-                        "scale": "layout",
-                        "field": "subpop",
-                        "band": 0.5
-                    },
-                    "height": {
-                        "signal": "plotWidth"
-                    },
-                    "width": {
-                        "signal": "width"
-                    }
-                }
-            },
-            "data": [
-                {
-                    "name": "reccurrent",
-                    "source": "rec"
-                }
-            ],
-            "marks": [
-                {
-                    "type": "text",
-                    "from": {
-                        "data": "reccurrent"
-                    },
-                    "encode": {
-                        "enter": {
-                            "text": {
-                                "field": "records"
-                            },
-                            "fontSize": {
-                                "value": 15
-                            },
-                            "fill": [
-                                {
-                                    "test": "datum['records'] =='NaN'",
-                                    "value": ""
-                                },
-                                {
-                                    "value": "#898989"
-                                }
-                            ]
-                        },
-                        "update": {
-                            "yc": {
-                                "signal": "plotWidth / 1.5"
-                            },
-                            "height": {
-                                "signal": "plotWidth / 50"
-                            },
-                            "x": {
-                                "offset": -80
-                            },
-                            "stroke": {
-                                "value": null
-                            },
-                            "zindex": {
-                                "value": 0
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "from": {
-                "facet": {
-                    "data": "distcurrent",
-                    "name": "rec",
-                    "groupby": "subpop"
-                }
-            },
-            "encode": {
-                "enter": {
-                    "yc": {
-                        "scale": "layout",
-                        "field": "subpop",
-                        "band": 0.5
-                    },
-                    "height": {
-                        "signal": "plotWidth"
-                    },
-                    "width": {
-                        "signal": "width"
-                    }
-                }
-            },
-            "data": [
-                {
-                    "name": "reccurrent",
-                    "source": "rec"
-                }
-            ],
-            "marks": [
-                {
-                    "type": "text",
-                    "from": {
-                        "data": "reccurrent"
-                    },
-                    "encode": {
-                        "enter": {
-                            "text": {
-                                "field": "records2"
-                            },
-                            "fontSize": {
-                                "value": 15
-                            },
-                            "fill": [
-                                {
-                                    "test": "datum['records2'] !=='MSK'",
-                                    "value": ""
-                                },
-                                {
-                                    "value": "#898989"
-                                }
-                            ]
-                        },
-                        "update": {
-                            "yc": {
-                                "signal": "plotWidth / 1.5"
-                            },
-                            "height": {
-                                "signal": "plotWidth / 50"
-                            },
-                            "x": {
-                                "offset": -80
-                            },
-                            "stroke": {
-                                "value": null
-                            },
-                            "zindex": {
-                                "value": 0
-                            }
-                        }
-                    }
-                }
-            ]
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_0_main",
+          "data": "filt",
+          "groupby": ["School Year"]
         }
-    ]
+      },
+      "encode": {
+        "update": {
+          "width": {"field": {"group": "width"}},
+          "height": {"field": {"group": "height"}}
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_0_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "datum[\"School Year\"]"},
+          "from": {"data": "faceted_path_layer_0_main"},
+          "encode": {
+            "update": {
+              "stroke": {"value": "Grey"},
+              "x": {"scale": "x", "field": "School Year"},
+              "y": {"scale": "y", "field": "Completion Rate"},
+              "strokeWidth": {"value": "3"},
+              "defined": {
+                "signal": "datum[\"Completion Rate\"] !== null && !isNaN(datum[\"Completion Rate\"])"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "symbol",
+      "style": ["point"],
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 1},
+          "fill": {"scale": "color", "field": "subpop"},
+          "tooltip": {
+            "signal": "{'District':datum.district,\"School Year\": ''+datum[\"School Year\"], \"Student Group\": ''+datum[\"subpop\"], \"Completion Rate\": format(datum[\"Completion Rate\"], \"0.0%\"),\"Total number of graduates\": ''+datum[\"success\"]}"
+          },
+          "x": {"scale": "x", "field": "School Year"},
+          "y": {"scale": "y", "field": "Completion Rate"},
+          "size": {"value": 450},
+          "stroke": {"value": null},
+                                                                          "zindex": {"value": 0}
+        },
+         "hover": {
+                                                                        "stroke": {"value": "black"},
+                                                                        "strokeWidth":{"value": "1"},
+                                                                        "zindex": {"value": 3}
+                                                                      }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "point",
+      "domain": {
+        "fields": [
+          {"data": "filt", "field": "School Year"},
+          {"data": "data_0", "field": "School Year"}
+        ],
+        "sort": true
+      },
+      "range": [0, {"signal": "width"}],
+      "padding": 0.5
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [0,1],
+      "range": [{"signal": "height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": ["BC Residents", "Special Needs"],
+      "range": ["#f28e2b", "Red"],
+      "interpolate": "hcl"
+    }
+  ],
+  "axes": [
+    {
+      "scale": "y",
+      "orient": "left",
+      
+      
+      "tickCount": {"signal": "ceil(height/40)"},
+      "domain": false,
+      "labels": false,
+      "maxExtent": 0,
+      "minExtent": 0,
+      "ticks": false,
+      "zindex": 0
+    },
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "domain": false,
+      "labelAngle": 50,
+      "labelFontSize": 15,
+      "minExtent": 70,
+      "offset": 5,
+      "ticks": false,
+      "labelAlign": "left",
+      "labelBaseline": "middle",
+      "labelColor":"#898989",
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Completion Rate",
+      "titleFontWeight":"100",
+      "titleColor":"#898989",
+      "format": "0.0%",
+      "labelFontSize": 15,
+      "titleFontSize": 20,
+      "titlePadding":5,
+      "labelOverlap": true,
+      "labelColor":"#898989",
+      "tickCount": {"signal": "ceil(height/50)"},
+      "zindex": 0
+    }
+  ],
+  "legends": [
+    {
+      "title": "Student Group",
+      "fill": "color",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "symbolType": "circle",
+      "orient":"bottom-right",
+      "encode": {"symbols": {"update": {"opacity": {"value": 1}}}}
+    }
+  ]
 }
