@@ -5,7 +5,6 @@
   "padding": 5,
   "width": 875,
   "height": 310,
-  "autosize":{"type":"fit","contains":"padding"},
   "style": "cell",
   "data": [
     {
