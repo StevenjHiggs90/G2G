@@ -1,20 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 984,
-  "height": 600,
-  "padding": 50,
+  "width": 194,
+  "height": 750,
 
-  "signals": [
-    { "name": "method", "value": "tidy",
-      "bind": {"input": "select", "options": ["tidy", "cluster"]} },
-    { "name": "separation", "value": true, "bind": {"input": "checkbox"} }
-  ],
+
   
 
   "data": [
     {
       "name": "tree",
-      "values": [{"id": "A","parent": null,"write":["Grade 8 Students in 2006/07","(adjusted for migration","in and out of B.C)"],"district":"Arrow Lakes","students":"65","BOX1":["100%","of student group"]},{"id": "B","parent": "A","write":"K-12 Non-Graduates","district":"Arrow Lakes","NON_GRADS":"13","PCT_NON_GRADS_DEPARTS":["20% Of Original","Student Group"]},{"id": "C","parent": "A","write":"K-12 Graduates","district":"Arrow Lakes","GRADS":"52","PCT_GRADS_DEPARTS":["80% Of Original","Student Group"]},{"id": "D","parent": "B","write":["No Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","NON_GRAD_NO_PSI":"8","PCT_NON_GRAD_NO_PSI_NONGRAD":"61.5% of non-graduates","PCT_NON_GRAD_NO_PSI_DEPARTS":["12.3% of original","student group"]},{"id": "E","parent": "B","write":["Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","NON_GRAD_HAS_PSI":"5","PCT_NON_GRAD_HAS_PSI_NONGRAD":"38.5% of non-graduates","PCT_NON_GRAD_HAS_PSI_DEPARTS":["7.7% of original","student group"]},{"id": "F","parent": "C","write":["No Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","GRAD_NO_PSI":"10","PCT_GRAD_NO_PSI_GRAD":"19.2% of graduates","PCT_GRAD_NO_PSI_DEPARTS":["15.4% of original","student group"]},{"id": "G","parent": "C","write":["Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Arrow Lakes","GRAD_HAS_PSI":"42","PCT_GRAD_HAS_PSI_GRAD":"80.8% of graduates","PCT_GRAD_HAS_PSI_DEPARTS":["64.6% of original","student group"]}],
+      "values":[{"id": "A","parent": null,"write":["Grade 8 Students in", "2006/07"],"district":"Bulkley Valley","students":"247","BOX1":["100%","of student group"]},{"id": "B","parent": "A","write":"K-12 Non-Graduates","district":"Bulkley Valley","NON_GRADS":"70","PCT_NON_GRADS_DEPARTS":["28.3% Of Original","Student Group"]},{"id": "C","parent": "A","write":"K-12 Graduates","district":"Bulkley Valley","GRADS":"177","PCT_GRADS_DEPARTS":["71.7% Of Original","Student Group"]},{"id": "D","parent": "E","write":["No Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Bulkley Valley","NON_GRAD_NO_PSI":"46","PCT_NON_GRAD_NO_PSI_NONGRAD":["65.7%of", "non-graduates"],"PCT_NON_GRAD_NO_PSI_DEPARTS":["18.6% of original","student group"]},{"id": "E","parent": "B","write":["Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Bulkley Valley","NON_GRAD_HAS_PSI":"24","PCT_NON_GRAD_HAS_PSI_NONGRAD":["34.3%of","non-graduates"],"PCT_NON_GRAD_HAS_PSI_DEPARTS":["9.7% of original","student group"]},{"id": "F","parent": "G","write":["No Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Bulkley Valley","GRAD_NO_PSI":"65","PCT_GRAD_NO_PSI_GRAD":"36.7% of graduates","PCT_GRAD_NO_PSI_DEPARTS":["26.3% of original","student group"]},{"id": "G","parent": "C","write":["Progress to B.C.","Public","Post-Secondary After","K-12","by Fall 2017"],"district":"Bulkley Valley","GRAD_HAS_PSI":"112","PCT_GRAD_HAS_PSI_GRAD":"63.3% of graduates","PCT_GRAD_HAS_PSI_DEPARTS":["45.3% of original","student group"]}],
       "transform": [
        
         {
@@ -24,9 +19,7 @@
         },
         {
           "type": "tree",
-          "method": {"signal": "method"},
-          "separation": false,
-          "size": [1200,600]
+          "size": [{"signal": "width"}, {"signal": "height"}]
         }
       ]
     },
@@ -57,9 +50,7 @@
         ],
         "sort": true
       },
-      "range":"width",
-      "paddingInner": 0,
-      "paddingOuter": 0
+      "range":"width"
     },
     {
       "name": "y",
@@ -71,9 +62,7 @@
         ],
         "sort": true
       },
-      "range": "height",
-      "paddingInner": 0,
-      "paddingOuter": 0
+      "range": "height"
     }
               ],
 
@@ -100,12 +89,12 @@
           
           "fill": {"scale": "color", "field": "id"},
           "stroke": {"value": "white"},
-          "size": {"value": 29900},
-          "shape":{"value":"M-1,-1H2.3V2H-1Z"}
+          "size": {"value": 15900},
+          "shape":{"value":"M-,-1H1.1V3.5H-1Z"}
         },
         "update": {
-          "x": {"field": "x","offset":-55},
-          "y": {"field": "y"}
+          "x": {"field": "x","offset":0},
+          "y": {"field": "y","offset":-95}
         }
       }
     },
@@ -116,9 +105,9 @@
         "enter": {
           "text": {"field":"write"},
           "fill":{"value":"white"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":-50}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":-70}
         },
         "update": {
            "fill": [
@@ -138,9 +127,9 @@
         "enter": {
           "text": {"field":"BOX1"},
           "fill":{"value":"white"},
-          "fontSize":{"value":25},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":120}
+          "fontSize":{"value":15},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":90}
         }
       }
     },
@@ -151,9 +140,9 @@
         "enter": {
           "text": {"field":"students"},
           "fill":{"value":"white"},
-          "fontSize":{"value":60},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":65}
+          "fontSize":{"value":20},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":15}
         }
       }
     },  {
@@ -163,9 +152,9 @@
         "enter": {
           "text": {"field":"NON_GRADS"},
           "fill":{"value":"white"},
-          "fontSize":{"value":50},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":40}
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":-10}
         }
       }
     }, 
@@ -177,9 +166,9 @@
         "enter": {
           "text": {"field":"GRADS"},
           "fill":{"value":"white"},
-          "fontSize":{"value":50},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":40}
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-55},
+          "y": {"field": "y","offset":-10}
         }
       }
     },
@@ -192,9 +181,9 @@
         "enter": {
           "text": {"field":"PCT_NON_GRADS_DEPARTS"},
           "fill":{"value":"white"},
-          "fontSize":{"value":27},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":120}
+          "fontSize":{"value":15},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":55}
         }
       }
     },
@@ -205,9 +194,9 @@
         "enter": {
           "text": {"field":"PCT_GRADS_DEPARTS"},
           "fill":{"value":"white"},
-          "fontSize":{"value":27},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":120}
+          "fontSize":{"value":15},
+          "x": {"field":"x","offset":-52},
+          "y": {"field": "y","offset":55}
         }
       }
     },
@@ -218,9 +207,9 @@
         "enter": {
           "text": {"field":"NON_GRAD_NO_PSI"},
           "fill":{"value":"white"},
-          "fontSize":{"value":37},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":80}
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-50},
+          "y": {"field": "y","offset":25}
         }
       }
     }, {
@@ -230,9 +219,9 @@
         "enter": {
           "text": {"field":"PCT_NON_GRAD_NO_PSI_NONGRAD"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":110}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":40}
         }
       }
     }, 
@@ -244,9 +233,9 @@
         "enter": {
           "text": {"field":"NON_GRAD_HAS_PSI"},
           "fill":{"value":"white"},
-          "fontSize":{"value":37},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":80}
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":20}
         }
       }
     },
@@ -257,9 +246,9 @@
         "enter": {
           "text": {"field":"PCT_NON_GRAD_HAS_PSI_NONGRAD"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":110}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":40}
         }
       }
     }
@@ -273,9 +262,9 @@
         "enter": {
           "text": {"field":"GRAD_NO_PSI"},
           "fill":{"value":"white"},
-          "fontSize":{"value":37},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":80}
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":20}
         }
       }
     },
@@ -286,9 +275,9 @@
         "enter": {
           "text": {"field":"PCT_GRAD_NO_PSI_GRAD"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":110}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":40}
         }
       }
     }
@@ -302,9 +291,9 @@
         "enter": {
           "text": {"field":"GRAD_HAS_PSI"},
           "fill":{"value":"white"},
-          "fontSize":{"value":37},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":80}
+          "fontSize":{"value":25},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":20}
         }
       }
     },
@@ -315,9 +304,9 @@
         "enter": {
           "text": {"field":"PCT_GRAD_HAS_PSI_GRAD"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":110}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":40}
         }
       }
     }
@@ -329,9 +318,9 @@
         "enter": {
           "text": {"field":"PCT_NON_GRAD_NO_PSI_DEPARTS"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":135}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":90}
         }
       }
     },
@@ -342,9 +331,9 @@
         "enter": {
           "text": {"field":"PCT_NON_GRAD_HAS_PSI_DEPARTS"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":135}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":80}
         }
       }
     },
@@ -355,9 +344,9 @@
         "enter": {
           "text": {"field":"PCT_GRAD_NO_PSI_DEPARTS"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":135}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":90}
         }
       }
     },
@@ -368,9 +357,9 @@
         "enter": {
           "text": {"field":"PCT_GRAD_HAS_PSI_DEPARTS"},
           "fill":{"value":"#666666"},
-          "fontSize":{"value":20},
-          "x": {"field":"x","offset":-130},
-          "y": {"field": "y","offset":135}
+          "fontSize":{"value":12},
+          "x": {"field":"x","offset":-60},
+          "y": {"field": "y","offset":90}
         }
       }
     }
